@@ -15,5 +15,4 @@
         <slot />
     </main>
     <Footer />
-    <Kirby />
 </div>
