@@ -3,6 +3,7 @@
 }
 
 @import "tailwindcss";
+@import "@catppuccin/tailwindcss/config.css";
 
 body {
   font-family: "Inter", "Heebo", sans-serif;
