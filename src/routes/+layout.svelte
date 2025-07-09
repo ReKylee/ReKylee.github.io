@@ -9,7 +9,7 @@
     language.init();
 </script>
 
-<div dir={$language === 'he' ? 'rtl' : 'ltr'}>
+<div class="bg-ctp-base text-ctp-text" dir={$language === 'he' ? 'rtl' : 'ltr'}>
     <Header />
     <main>
         <slot />

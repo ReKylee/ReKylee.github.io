@@ -12,24 +12,24 @@
   }
 </script>
 
-<header class="bg-slate-50/80 dark:bg-ctp-base/80 backdrop-blur-lg sticky top-0 z-50 transition-all duration-300">
+<header class="bg-ctp-base/80 backdrop-blur-lg sticky top-0 z-50 transition-all duration-300">
     <div class="container mx-auto px-4">
-        <nav class="flex justify-between items-center py-4 border-b border-slate-200 dark:border-ctp-surface1">
-            <a href="#hero" class="text-xl font-bold text-slate-900 dark:text-ctp-text">{$t('name')}</a>
+        <nav class="flex justify-between items-center py-4 border-b border-ctp-surface1">
+            <a href="#hero" class="text-xl font-bold text-ctp-text">{$t('name')}</a>
             <div class="flex items-center gap-4">
                 <ul class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                    <li><a href="#about" class="text-slate-700 dark:text-ctp-subtext1 hover:text-emerald-500 dark:hover:text-ctp-green transition-colors">{$t('nav.about')}</a></li>
-                    <li><a href="#skills" class="text-slate-700 dark:text-ctp-subtext1 hover:text-emerald-500 dark:hover:text-ctp-green transition-colors">{$t('nav.skills')}</a></li>
-                    <li><a href="#experience" class="text-slate-700 dark:text-ctp-subtext1 hover:text-emerald-500 dark:hover:text-ctp-green transition-colors">{$t('nav.experience')}</a></li>
-                    <li><a href="#projects" class="text-slate-700 dark:text-ctp-subtext1 hover:text-emerald-500 dark:hover:text-ctp-green transition-colors">{$t('nav.projects')}</a></li>
-                    <li><a href="#education" class="text-slate-700 dark:text-ctp-subtext1 hover:text-emerald-500 dark:hover:text-ctp-green transition-colors">{$t('nav.education')}</a></li>
+                    <li><a href="#about" class="text-ctp-subtext0 hover:text-ctp-green transition-colors">{$t('nav.about')}</a></li>
+                    <li><a href="#skills" class="text-ctp-subtext0 hover:text-ctp-green transition-colors">{$t('nav.skills')}</a></li>
+                    <li><a href="#experience" class="text-ctp-subtext0 hover:text-ctp-green transition-colors">{$t('nav.experience')}</a></li>
+                    <li><a href="#projects" class="text-ctp-subtext0 hover:text-ctp-green transition-colors">{$t('nav.projects')}</a></li>
+                    <li><a href="#education" class="text-ctp-subtext0 hover:text-ctp-green transition-colors">{$t('nav.education')}</a></li>
                 </ul>
                 
-                <div class="flex items-center gap-4 border-l border-slate-200 dark:border-ctp-surface1 pl-4">
-                    <button on:click={toggleLanguage} class="text-sm font-bold text-slate-600 dark:text-ctp-subtext0">
+                <div class="flex items-center gap-4 border-l border-ctp-surface1 pl-4">
+                    <button on:click={toggleLanguage} class="text-sm font-bold text-ctp-subtext0">
                         {$language === 'en' ? 'HE' : 'EN'}
                     </button>
-                    <button on:click={toggleTheme} class="text-slate-600 dark:text-ctp-subtext0 text-xl">
+                    <button on:click={toggleTheme} class="text-ctp-subtext0 text-xl">
                         {#if $theme === 'light'}
                             <span>&#9790;</span> <!-- Moon -->
                         {:else}

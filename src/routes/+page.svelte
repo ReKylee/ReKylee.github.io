@@ -10,12 +10,12 @@
 <div class="container mx-auto px-4">
     <Hero />
     <About />
-    <div class="my-8 border-t border-slate-200 dark:border-ctp-surface1"></div>
+    <div class="my-8 border-t border-ctp-surface1"></div>
     <Skills />
-    <div class="my-8 border-t border-slate-200 dark:border-ctp-surface1"></div>
+    <div class="my-8 border-t border-ctp-surface1"></div>
     <Experience />
-    <div class="my-8 border-t border-slate-200 dark:border-ctp-surface1"></div>
+    <div class="my-8 border-t border-ctp-surface1"></div>
     <Projects />
-    <div class="my-8 border-t border-slate-200 dark:border-ctp-surface1"></div>
+    <div class="my-8 border-t border-ctp-surface1"></div>
     <Education />
 </div>

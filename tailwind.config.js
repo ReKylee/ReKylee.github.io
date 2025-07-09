@@ -1,11 +1,16 @@
 /** @type {import('tailwindcss').Config} */
+import catppuccin from "@catppuccin/tailwindcss";
+
 export default {
-  content: ['./src/**/*.{html,js,svelte,ts}'],
-  darkMode: 'class',
+  content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
     extend: {},
   },
   plugins: [
-    require('@tailwindcss/typography'),
+    catppuccin({
+      prefix: "ctp",
+      defaultFlavour: "mocha",
+    }),
+    require("@tailwindcss/typography"),
   ],
-}
+};
