@@ -8,3 +8,7 @@
 body {
   font-family: "Inter", "Heebo", sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+}
