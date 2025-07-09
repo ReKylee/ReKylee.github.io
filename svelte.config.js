@@ -6,15 +6,15 @@ const config = {
   preprocess: [vitePreprocess()],
   kit: {
     adapter: adapter({
-      pages: 'build',
-      assets: 'build',
-      fallback: '404.html',
+      pages: "build",
+      assets: "build",
+      fallback: "404.html",
       precompress: false,
-      strict: true
+      strict: true,
     }),
     paths: {
-      base: process.env.BASE_PATH
-    }
+      base: process.env.BASE_PATH,
+    },
   },
 };
 
