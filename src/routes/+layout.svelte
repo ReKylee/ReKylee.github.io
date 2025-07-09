@@ -9,9 +9,9 @@
     language.init();
 </script>
 
-<div class="bg-ctp-base text-ctp-text transition-colors duration-300" dir={$language === "he" ? "rtl" : "ltr"}>
+<div class="bg-ctp-base text-ctp-text transition-colors duration-300 {$language === 'he' ? 'lang-he' : 'lang-en'}" dir={$language === "he" ? "rtl" : "ltr"}>
     <Header />
-    <main>
+    <main class="prose lg:prose-xl max-w-none">
         <slot />
     </main>
     <Footer />
