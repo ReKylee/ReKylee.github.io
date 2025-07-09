@@ -1,15 +1,15 @@
 <script>
     import "../app.css";
-    import { theme } from '$lib/stores/theme.js';
-    import { language } from '$lib/stores/language.js';
-    import Header from '$lib/components/Header.svelte';
-    import Footer from '$lib/components/Footer.svelte';
+    import { theme } from "$lib/stores/theme.js";
+    import { language } from "$lib/stores/language.js";
+    import Header from "$lib/components/Header.svelte";
+    import Footer from "$lib/components/Footer.svelte";
 
     theme.init();
     language.init();
 </script>
 
-<div class="bg-ctp-base text-ctp-text" dir={$language === 'he' ? 'rtl' : 'ltr'}>
+<div class="bg-ctp-base text-ctp-text transition-colors duration-300" dir={$language === "he" ? "rtl" : "ltr"}>
     <Header />
     <main>
         <slot />
