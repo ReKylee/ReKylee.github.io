@@ -2,6 +2,7 @@
     import Nav from "$lib/components/Nav.svelte";
     import ThemeSwitch from "$lib/components/ThemeSwitch.svelte";
     import { t, language } from "$lib/stores/language";
+    import GlitchText from "./GlitchText.svelte";
 </script>
 
 <header
@@ -14,12 +15,13 @@
             alt="Kylee's Logo"
             class="h-18 mr-4 inline-block"
         />
-        <span
-            class="glitch text-3xl font-bold text-ctp-pink"
-            data-text={$t("name")}
-        >
-            {$t("name")}
-        </span>
+        <GlitchText
+            text={$t("name")}
+            loopDelay={1500}
+            revealOrder="random"
+            size="3xl"
+            color="mauve"
+        />
     </div>
     <Nav />
     <div class="flex items-center space-x-4">

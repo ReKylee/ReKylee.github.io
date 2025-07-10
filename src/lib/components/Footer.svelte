@@ -28,7 +28,7 @@
             >
         </a>
         <a
-            href="https://www.linkedin.com/in/kylee-benisty/"
+            href="https://www.linkedin.com/in/rekylee/"
             target="_blank"
             class="text-ctp-text transition-colors hover:text-ctp-green"
             aria-label="LinkedIn"
@@ -53,7 +53,7 @@
             >
         </a>
         <a
-            href="mailto:kylee.benisty@gmail.com"
+            href="mailto:ido5490@gmail.com"
             class="text-ctp-text transition-colors hover:text-ctp-green"
             aria-label="Email"
         >
