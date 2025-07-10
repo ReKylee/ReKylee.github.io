@@ -5,22 +5,17 @@
 }
 
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @import "@catppuccin/tailwindcss/config.css";
-
-body {
-  font-family: "Inter", "Heebo", sans-serif;
+@import "tailwindcss-animated";
+@theme {
+  --font-sans: "JetBrains Mono", sans-serif;
+  --font-hebrew: "Noto Sans Hebrew", sans-serif;
+  --default-font-family: "JetBrains Mono", var(--font-sans);
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-.lang-en {
-  font-family: "JetBrains Mono", sans-serif;
-}
-
-.lang-he {
-  font-family: "Noto Sans Hebrew", sans-serif;
 }
 
 /* Ensure main content area scrolls independently */
@@ -32,7 +27,9 @@ main {
 .section-animate {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .section-animate.is-visible {
