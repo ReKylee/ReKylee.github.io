@@ -8,9 +8,16 @@
     class="mb-8 flex flex-col items-center justify-between border-b-2 border-ctp-surface1 pb-4 md:flex-row"
     dir="ltr"
 >
-    <div class="relative mb-4 text-2xl font-bold md:mb-0">
-        <img src="./KBLogo.svg" alt="Kylee's Logo" />
-        <span class="glitch text-ctp-pink" data-text={$t("name")}>
+    <div class="flex items-center relative mb-4 md:mb-0">
+        <img
+            src="./favicon.svg"
+            alt="Kylee's Logo"
+            class="h-18 mr-4 inline-block"
+        />
+        <span
+            class="glitch text-3xl font-bold text-ctp-pink"
+            data-text={$t("name")}
+        >
             {$t("name")}
         </span>
     </div>

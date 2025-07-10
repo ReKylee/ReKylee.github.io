@@ -19,17 +19,17 @@
                     <img
                         src="/ryan-beck-dreamcast-controller.svg"
                         alt="Dreamcast Controller"
-                        class="controller-icon"
+                        class="controller-icon invert dark:invert-0 brightness-50 dark:brightness-110 group-hover:drop-shadow-[0_0_8px_theme(colors.ctp.mauve)]"
                     />
                     <img
                         src="/ryan-beck-gamecube-controller.svg"
                         alt="Gamecube Controller"
-                        class="controller-icon"
+                        class="controller-icon invert dark:invert-0 brightness-75 dark:brightness-100 group-hover:drop-shadow-[0_0_8px_theme(colors.ctp.mauve)]"
                     />
                     <img
                         src="/ryan-beck-wii-controller.svg"
                         alt="Wii Controller"
-                        class="controller-icon"
+                        class="controller-icon invert dark:invert-0 brightness-90 dark:brightness-90 group-hover:drop-shadow-[0_0_8px_theme(colors.ctp.mauve)]"
                     />
                 </div>
             </div>

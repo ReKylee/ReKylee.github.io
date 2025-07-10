@@ -6,9 +6,13 @@
 }
 
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
+
 @import "@catppuccin/tailwindcss/mocha.css";
+@custom-variant dark (&:where(.frappe, .frappe *, .macchiato, .macchiato *, .mocha, .mocha *));
+
 @import "tailwindcss-animated";
+
+@plugin "@tailwindcss/typography";
 @theme {
   --font-sans: "JetBrains Mono", sans-serif;
   --font-hebrew: "Noto Sans Hebrew", sans-serif;
@@ -27,7 +31,6 @@ html {
 }
 
 main {
-  overflow-y: auto;
   -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
 }
 .skill-chip {
@@ -59,13 +62,24 @@ main {
 
 /* Position each controller in the pile */
 .controller-icon:nth-child(1) {
-  transform: rotateX(60deg) rotateZ(-30deg) translateZ(0px);
+  transform: rotateX(5deg) rotateZ(-10deg) translateZ(0px) translateX(-25px)
+    translateY(-10px);
+  z-index: 3;
 }
 .controller-icon:nth-child(2) {
-  transform: rotateX(60deg) rotateZ(-30deg) translateZ(5px);
+  transform: rotateX(5deg) rotateZ(0deg) translateZ(5px) translateX(0px)
+    translateY(10px);
+  z-index: 2;
 }
 .controller-icon:nth-child(3) {
-  transform: rotateX(60deg) rotateZ(-30deg) translateZ(10px);
+  transform: rotateX(5deg) rotateZ(10deg) translateZ(10px) translateX(25px)
+    translateY(-10px);
+  z-index: 1;
+}
+
+/* Conditional coloring based on theme */
+:global(html.latte) .controller-icon {
+  filter: invert(1); /* Black for light mode */
 }
 
 /* The Exploded View on Hover */
