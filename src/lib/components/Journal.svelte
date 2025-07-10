@@ -1,6 +1,8 @@
 <script>
 	import { t } from '$lib/stores/language.js';
 	import { onMount } from 'svelte';
+	import { fly } from 'svelte/transition';
+	import { elasticOut } from 'svelte/easing';
 
 	export let quests = [
 		{ href: '#about', text: 'nav.about', icon: 'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z', style: '' },
@@ -15,8 +17,10 @@
 	 * @type {IntersectionObserver}
 	 */
 	let observer;
+    let mounted = false;
 
 	onMount(() => {
+        mounted = true;
 		quests = quests.map(q => ({
 			...q,
 			style: `transform: rotate(${(Math.random() - 0.5) * 5}deg); margin-left: ${Math.random() * 20}px;`
@@ -72,8 +76,10 @@
 	}
 </script>
 
+{#if mounted}
 <aside
-	class="bg-ctp-crust border-2 border-ctp-surface0 rounded-lg p-6 shadow-xl m-5 sticky top-24 h-[calc(100vh-12rem)] overflow-y-auto font-serif text-ctp-text"
+	class="relative bg-ctp-crust border-2 border-ctp-surface0 rounded-lg p-6 shadow-xl m-5 sticky top-24 h-[calc(100vh-12rem)] overflow-y-auto font-serif text-ctp-text"
+	in:fly={{ y: -20, duration: 800, easing: elasticOut }}
 >
 	<div class="text-center mb-6">
 		<h1 class="text-4xl font-bold text-ctp-text drop-shadow-md font-fantasy">{$t('name')}</h1>
@@ -88,12 +94,12 @@
 	</div>
 
 	<ul class="list-none p-0 m-0 space-y-4">
-		{#each quests as quest}
-			<li style={quest.style}>
+		{#each quests as quest, i}
+			<li style={quest.style} in:fly={{ y: 20, duration: 600, delay: i * 150, easing: elasticOut }}>
 				<a
 					href={quest.href}
 					use:smoothScroll
-					class="flex items-center no-underline text-ctp-text text-lg p-3 rounded-lg transition-all duration-300"
+					class="flex items-center no-underline text-ctp-text text-lg p-3 rounded-lg transition-all duration-300 border-b border-ctp-surface1"
 					class:bg-ctp-surface0={selectedQuest === quest.href}
 					class:text-ctp-mauve={selectedQuest === quest.href}
 					class:hover:bg-ctp-surface1={selectedQuest !== quest.href}
@@ -112,10 +118,11 @@
 		{/each}
 	</ul>
 
-	<div class="relative py-4 mt-4">
+	<div class="absolute bottom-0 left-0 right-0 py-4 mt-4">
 		<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-ctp-surface2"></div>
 		<svg width="100%" height="20" class="absolute bottom-0 left-0 right-0">
 			<path d="M0 10 Q 5 20, 10 10 T 20 10 T 30 10 T 40 10 T 50 10 T 60 10 T 70 10 T 80 10 T 90 10 T 100 10" stroke="var(--ctp-surface2)" stroke-width="2" fill="none" />
 		</svg>
 	</div>
 </aside>
+{/if}

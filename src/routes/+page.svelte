@@ -5,26 +5,23 @@
     import Experience from '$lib/components/Experience.svelte';
     import Projects from '$lib/components/Projects.svelte';
     import Education from '$lib/components/Education.svelte';
+    import { animateOnScroll } from '$lib/actions/animateOnScroll.js';
 </script>
 
 <Hero />
 
-<section id="about" class="py-8">
+<section id="about" class="py-16 section-animate" use:animateOnScroll>
     <About />
 </section>
-<div class="my-8 border-t border-ctp-surface1"></div>
-<section id="skills" class="py-8">
+<section id="skills" class="py-16 section-animate" use:animateOnScroll>
     <Skills />
 </section>
-<div class="my-8 border-t border-ctp-surface1"></div>
-<section id="experience" class="py-8">
+<section id="experience" class="py-16 section-animate" use:animateOnScroll>
     <Experience />
 </section>
-<div class="my-8 border-t border-ctp-surface1"></div>
-<section id="projects" class="py-8">
+<section id="projects" class="py-16 section-animate" use:animateOnScroll>
     <Projects />
 </section>
-<div class="my-8 border-t border-ctp-surface1"></div>
-<section id="education" class="py-8">
+<section id="education" class="py-16 section-animate" use:animateOnScroll>
     <Education />
 </section>
