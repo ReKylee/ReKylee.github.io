@@ -4,19 +4,31 @@
     export let text = "";
     let displayedText = "";
     let i = 0;
+    /** @type {number | undefined } */
+    let interval;
 
-    onMount(() => {
-        const interval = setInterval(() => {
+    function startTyping() {
+        displayedText = "";
+        i = 0;
+        clearInterval(interval);
+        interval = Number(setInterval(() => {
             if (i < text.length) {
                 displayedText += text.charAt(i);
                 i++;
             } else {
                 clearInterval(interval);
             }
-        }, 50);
+        }, 50));
+    }
 
+    onMount(() => {
+        startTyping();
         return () => clearInterval(interval);
     });
+
+    $: if (text) {
+        startTyping();
+    }
 </script>
 
 <span>{displayedText}</span>

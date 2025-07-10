@@ -14,6 +14,14 @@
   --font-hebrew: "Noto Sans Hebrew", sans-serif;
 }
 
+.font-hebrew {
+  font-family: var(--font-hebrew);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
 html {
   scroll-behavior: smooth;
 }

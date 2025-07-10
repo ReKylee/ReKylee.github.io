@@ -13,7 +13,7 @@ export default {
         },
         contact_me: 'Contact Me',
         hero: {
-            title: 'Game Developer & <br> Software Engineer',
+            title: 'Game Developer & Software Engineer',
             subtitle: 'Transforming complex problems into engaging games and robust applications with a lifelong passion for code and creativity.',
             view_work: 'View My Work',
             see_skills: 'See My Skills',
@@ -101,7 +101,7 @@ export default {
         },
         contact_me: 'צרו קשר',
         hero: {
-            title: 'מפתחת משחקים <br> ומהנדסת תוכנה',
+            title: 'מפתחת משחקים ומהנדסת תוכנה',
             subtitle: 'הופכת בעיות מורכבות למשחקים מרתקים ויישומים יציבים, עם תשוקה של שנים לקוד ויצירתיות.',
             view_work: 'צפו בעבודות שלי',
             see_skills: 'ראו את הכישורים שלי',

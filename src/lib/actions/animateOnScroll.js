@@ -1,3 +1,6 @@
+/**
+ * @param {HTMLElement} node
+ */
 export function animateOnScroll(node) {
     const observer = new IntersectionObserver(
         (entries) => {

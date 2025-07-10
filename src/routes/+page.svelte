@@ -5,6 +5,7 @@
     import SkillBar from "$lib/components/SkillBar.svelte";
     import ProjectCard from "$lib/components/ProjectCard.svelte";
     import Timeline from "$lib/components/Timeline.svelte";
+    import { language } from "$lib/stores/language";
 </script>
 
 <div class="space-y-16">
