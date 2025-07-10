@@ -9,7 +9,7 @@
 <div dir="ltr">
     <button on:click={toggleTheme} aria-label="Toggle theme"
         ><div class="tdnn" class:day={$theme === "light"}>
-            <div class="moon" class:sun={$theme === "dark"}></div>
+            <div class="moon" class:sun={$theme === "light"}></div>
         </div>
     </button>
 </div>
@@ -28,15 +28,14 @@
         --bgColor--night: #423966;
         --toggleBtn-bgColor--night: var(--bgColor--night);
         --mooncolor: #d9fbff;
-        --bgColor--day: #9ee3fb;
+        --bgColor--day: #fab387;
         --toggleBtn-bgColor--day: var(--bgColor--day);
     }
 
     .tdnn {
         margin: 0 auto;
         /*change size of toggle with font-size*/
-        font-size: 30%;
-        margin-top: 10em;
+        font-size: 15%;
         position: relative;
         height: var(--toggleHeight);
         width: var(--toggleWidth);
@@ -67,6 +66,10 @@
             rgba(255, 255, 255, 0.1) 6em 13em 0 -4.5em,
             rgba(255, 255, 255, 0.1) -4em 7em 0 -4.5em,
             rgba(255, 255, 255, 0.1) -1em 10em 0 -4.5em;
+    }
+
+    .day {
+        background: #ffbf71;
     }
     .sun {
         top: 4.5em;

@@ -8,12 +8,23 @@
 </script>
 
 <Hero />
-<About />
+
+<section id="about" class="py-8">
+    <About />
+</section>
 <div class="my-8 border-t border-ctp-surface1"></div>
-<Skills />
+<section id="skills" class="py-8">
+    <Skills />
+</section>
 <div class="my-8 border-t border-ctp-surface1"></div>
-<Experience />
+<section id="experience" class="py-8">
+    <Experience />
+</section>
 <div class="my-8 border-t border-ctp-surface1"></div>
-<Projects />
+<section id="projects" class="py-8">
+    <Projects />
+</section>
 <div class="my-8 border-t border-ctp-surface1"></div>
-<Education />
+<section id="education" class="py-8">
+    <Education />
+</section>

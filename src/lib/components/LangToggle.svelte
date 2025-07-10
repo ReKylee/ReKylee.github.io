@@ -5,7 +5,7 @@
     }
 </script>
 
-<div class="absolute top-4 right-4 flex items-center gap-4" dir="ltr">
+<div class="flex items-center gap-4" dir="ltr">
     <button
         on:click={toggleLanguage}
         class="text-sm font-bold text-ctp-subtext0 transform transition-transform duration-200 hover:scale-110 active:scale-95"
