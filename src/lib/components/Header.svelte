@@ -6,6 +6,7 @@
 
 <header
     class="mb-8 flex flex-col items-center justify-between border-b-2 border-ctp-surface1 pb-4 md:flex-row"
+    dir="ltr"
 >
     <div class="relative mb-4 text-2xl font-bold md:mb-0">
         <span class="glitch text-ctp-pink" data-text={$t("name")}>

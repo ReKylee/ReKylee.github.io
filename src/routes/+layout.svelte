@@ -3,11 +3,14 @@
     import Footer from "$lib/components/Footer.svelte";
     import { theme } from "$lib/stores/theme";
     import { language } from "$lib/stores/language";
-    import { onMount } from "svelte";
-    onMount(() => {
-        theme.init();
-        language.init();
-    });
+    import { browser } from "$app/environment";
+
+    theme.init();
+    language.init();
+
+    $: if (browser) {
+        document.documentElement.dir = $language === "he" ? "rtl" : "ltr";
+    }
 </script>
 
 <div class="min-h-screen bg-ctp-crust font-sans text-ctp-text">
