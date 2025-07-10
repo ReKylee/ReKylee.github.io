@@ -30,7 +30,117 @@ main {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
 }
+.skill-chip {
+  @apply rounded-md bg-ctp-surface0 px-4 py-2 font-mono text-ctp-text shadow-md transition-all hover:scale-105 hover:text-ctp-base;
+}
+.skill-chip.c-green {
+  @apply hover:bg-ctp-green;
+}
+.skill-chip.c-sky {
+  @apply hover:bg-ctp-sky;
+}
 
+.controller-pile-container {
+  @apply flex h-16 w-16 items-center justify-center;
+  perspective: 500px;
+}
+
+.controller-pile {
+  @apply relative h-full w-full;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease-in-out;
+}
+
+.controller-icon {
+  @apply absolute h-full w-full object-contain transition-all duration-400 ease-in-out;
+  /* Start with a base rotation to create the pile effect */
+  transform: rotateX(60deg) rotateZ(-30deg);
+}
+
+/* Position each controller in the pile */
+.controller-icon:nth-child(1) {
+  transform: rotateX(60deg) rotateZ(-30deg) translateZ(0px);
+}
+.controller-icon:nth-child(2) {
+  transform: rotateX(60deg) rotateZ(-30deg) translateZ(5px);
+}
+.controller-icon:nth-child(3) {
+  transform: rotateX(60deg) rotateZ(-30deg) translateZ(10px);
+}
+
+/* The Exploded View on Hover */
+.controller-pile-container:hover .controller-pile {
+  transform: scale(1.1);
+}
+
+.controller-pile-container:hover .controller-icon {
+  transform: rotateX(0deg) rotateZ(0deg); /* Straighten out the icons */
+}
+
+/* Fan them out on hover */
+.controller-pile-container:hover .controller-icon:nth-child(1) {
+  transform: translateY(-35px) translateX(-15px) rotateZ(-15deg);
+}
+.controller-pile-container:hover .controller-icon:nth-child(2) {
+  transform: translateY(-5px);
+}
+.controller-pile-container:hover .controller-icon:nth-child(3) {
+  transform: translateY(25px) translateX(15px) rotateZ(15deg);
+}
+/* New Thematic Styles */
+
+/* For Game Engines */
+.skill-cog {
+  @apply flex h-24 w-24 items-center justify-center rounded-full bg-ctp-surface0 font-mono text-lg font-bold text-ctp-text shadow-inner transition-all duration-300;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  animation: spin 10s linear infinite reverse;
+}
+.skill-cog:hover {
+  @apply scale-110 -rotate-[30deg] cursor-pointer bg-ctp-mauve text-ctp-base;
+  animation-play-state: paused;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* For Programming Languages */
+.blinking-cursor {
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  from,
+  to {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #a6e3a1; /* ctp-green */
+  }
+}
+
+/* For Backend & Databases */
+.skill-node {
+  @apply w-3/4 rounded-lg bg-ctp-surface0 px-4 py-2 text-center font-mono text-ctp-text shadow-lg transition-all hover:scale-105 hover:text-ctp-base;
+}
+
+.skill-node.c-sky {
+  @apply hover:bg-ctp-sky;
+}
 .section-animate {
   opacity: 0;
   transform: translateY(50px);

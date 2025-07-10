@@ -9,6 +9,7 @@
     dir="ltr"
 >
     <div class="relative mb-4 text-2xl font-bold md:mb-0">
+        <img src="./KBLogo.svg" alt="Kylee's Logo" />
         <span class="glitch text-ctp-pink" data-text={$t("name")}>
             {$t("name")}
         </span>
