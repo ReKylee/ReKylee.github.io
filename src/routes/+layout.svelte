@@ -1,4 +1,5 @@
 <script>
+    import "../app.css";
     import Header from "$lib/components/Header.svelte";
     import Footer from "$lib/components/Footer.svelte";
     import { theme } from "$lib/stores/theme";
@@ -13,7 +14,11 @@
     }
 </script>
 
-<div class="min-h-screen bg-ctp-crust text-ctp-text" class:font-sans={$language === 'en'} class:font-hebrew={$language === 'he'}>
+<div
+    class="min-h-screen bg-ctp-crust text-ctp-text"
+    class:font-sans={$language === "en"}
+    class:font-hebrew={$language === "he"}
+>
     <div
         class="container mx-auto max-w-5xl bg-ctp-base p-4 shadow-2xl shadow-ctp-crust"
     >
