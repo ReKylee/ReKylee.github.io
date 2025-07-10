@@ -2,7 +2,7 @@
     import { t } from "$lib/stores/language";
     import Section from "$lib/components/Section.svelte";
     import SkillCard from "$lib/components/SkillCard.svelte";
-    import SkillCog from "$lib/components/SkillCog.svelte";
+    import SkillIcon from "$lib/components/SkillIcon.svelte";
     import BlinkingCursor from "$lib/components/BlinkingCursor.svelte";
 </script>
 
@@ -35,8 +35,18 @@
             </div>
 
             <div class="flex flex-wrap items-center justify-center gap-4 p-4">
-                <SkillCog name="Unity" />
-                <SkillCog name="Godot" delay={100} />
+                <SkillIcon
+                    lightSrc="/unity-original-wordmark-logo.svg"
+                    darkSrc="/unity-original-wordmark-logo.svg"
+                    alt="Unity Logo"
+                />
+
+                <SkillIcon
+                    lightSrc="/godot_logo_vertical_color_light.svg"
+                    darkSrc="/godot_logo_vertical_color_dark.svg"
+                    alt="Godot Logo"
+                    delay={300}
+                />
             </div>
         </SkillCard>
         <SkillCard title={$t("skills.languages")} theme="green" delay={150}>
