@@ -36,8 +36,8 @@
 
             <div class="flex flex-wrap items-center justify-center gap-4 p-4">
                 <SkillIcon
-                    lightSrc="/unity-original-wordmark-logo.svg"
-                    darkSrc="/unity-original-wordmark-logo.svg"
+                    lightSrc="/unity-original-wordmark-logo_light.svg"
+                    darkSrc="/unity-original-wordmark-logo_dark.svg"
                     alt="Unity Logo"
                 />
 

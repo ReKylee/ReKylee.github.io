@@ -12,7 +12,7 @@
     style="animation-delay: {delay}ms"
 >
     <img
-        src={$theme === "light" ? lightSrc : darkSrc}
+        src={$theme === "light" ? darkSrc : lightSrc}
         {alt}
         class="h-full w-full object-contain transition-all duration-300 animate-in animate-bounce-in group-hover:scale-110 group-hover:drop-shadow-[0_0_10px_theme(colors.ctp.mauve)]"
     />

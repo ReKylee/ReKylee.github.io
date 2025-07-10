@@ -104,34 +104,6 @@ main {
 /* New Thematic Styles */
 
 /* For Game Engines */
-.skill-cog {
-  @apply flex h-24 w-24 items-center justify-center rounded-full bg-ctp-surface0 font-mono text-lg font-bold text-ctp-text shadow-inner transition-all duration-300;
-  clip-path: polygon(
-    50% 0%,
-    61% 35%,
-    98% 35%,
-    68% 57%,
-    79% 91%,
-    50% 70%,
-    21% 91%,
-    32% 57%,
-    2% 35%,
-    39% 35%
-  );
-  animation: spin 10s linear infinite reverse;
-}
-.skill-cog:hover {
-  @apply scale-110 -rotate-[30deg] cursor-pointer bg-ctp-mauve text-ctp-base;
-  animation-play-state: paused;
-}
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 /* For Programming Languages */
 .blinking-cursor {
@@ -167,63 +139,109 @@ main {
   opacity: 1;
   transform: translateY(0);
 }
-
+/* --- Glitch Effect --- */
 .glitch {
-  animation: glitch 1.5s linear infinite;
+  position: relative;
+  /* Use Catppuccin colors for a cohesive theme */
+  color: #cba6f7; /* Mauve */
+  /* Animation: name duration timing-function delay iteration-count direction fill-mode */
+  animation: glitch-skew 1s infinite linear alternate-reverse;
 }
 
-@keyframes glitch {
-  2%,
-  64% {
-    transform: translate(2px, 0) skew(0deg);
-  }
-  4%,
-  60% {
-    transform: translate(-2px, 0) skew(0deg);
-  }
-  62% {
-    transform: translate(0, 0) skew(5deg);
-  }
-}
-
-.glitch:before,
-.glitch:after {
+.glitch::before,
+.glitch::after {
   content: attr(data-text);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background: #1e1e2e; /* Base color to prevent transparency issues */
 }
 
-.glitch:before {
+/* Red channel glitch */
+.glitch::before {
   left: 2px;
-  text-shadow: -2px 0 #ff00c1;
-  clip: rect(44px, 450px, 56px, 0);
-  animation: glitch-anim 5s infinite linear alternate-reverse;
+  text-shadow: -2px 0 #f38ba8; /* Red */
+  clip-path: inset(50% 0 51% 0);
+  animation: glitch-anim-1 2s infinite linear alternate-reverse;
 }
 
-.glitch:after {
+/* Blue channel glitch */
+.glitch::after {
   left: -2px;
-  text-shadow:
-    -2px 0 #00fff9,
-    2px 2px #ff00c1;
-  clip: rect(85px, 450px, 90px, 0);
-  animation: glitch-anim2 5s infinite linear alternate-reverse;
+  text-shadow: -2px 0 #89b4fa; /* Blue */
+  clip-path: inset(0% 0 95% 0);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
 }
 
-@keyframes glitch-anim {
+/* --- Keyframes --- */
+
+/* Main element's skewing animation */
+@keyframes glitch-skew {
   0% {
-    clip: rect(42px, 9999px, 44px, 0);
-    transform: skew(0.3deg);
+    transform: skew(0deg);
   }
-  /* ... (keep the rest of the keyframes from the original) */
+  5% {
+    transform: skew(1deg);
+  }
+  10% {
+    transform: skew(1deg);
+  }
+  15% {
+    transform: skew(-1deg);
+  }
+  20% {
+    transform: skew(-1deg);
+  }
+  25% {
+    transform: skew(0deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
 }
 
-@keyframes glitch-anim2 {
+/* Animation for the red channel pseudo-element */
+@keyframes glitch-anim-1 {
   0% {
-    clip: rect(42px, 9999px, 44px, 0);
-    transform: skew(0.3deg);
+    clip-path: inset(50% 0 51% 0);
   }
-  /* ... (keep the rest of the keyframes from the original) */
+  20% {
+    clip-path: inset(10% 0 85% 0);
+  }
+  40% {
+    clip-path: inset(80% 0 10% 0);
+  }
+  60% {
+    clip-path: inset(40% 0 45% 0);
+  }
+  80% {
+    clip-path: inset(90% 0 5% 0);
+  }
+  100% {
+    clip-path: inset(25% 0 70% 0);
+  }
+}
+
+/* Animation for the blue channel pseudo-element */
+@keyframes glitch-anim-2 {
+  0% {
+    clip-path: inset(0% 0 95% 0);
+  }
+  20% {
+    clip-path: inset(60% 0 35% 0);
+  }
+  40% {
+    clip-path: inset(20% 0 75% 0);
+  }
+  60% {
+    clip-path: inset(95% 0 2% 0);
+  }
+  80% {
+    clip-path: inset(15% 0 80% 0);
+  }
+  100% {
+    clip-path: inset(70% 0 25% 0);
+  }
 }
