@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -19,4 +21,10 @@ html {
 
 .lang-he {
   font-family: "Noto Sans Hebrew", sans-serif;
+}
+
+/* Ensure main content area scrolls independently */
+main {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
 }

@@ -2,11 +2,14 @@ export default {
     en: {
         name: 'Kylee Benisty',
         nav: {
-            about: 'About',
-            skills: 'Skills',
-            experience: 'Experience',
-            projects: 'Projects',
-            education: 'Education',
+            about: "About",
+            skills: "Skills",
+            experience: "Experience",
+            projects: "Projects",
+            education: "Education",
+        },
+        journal: {
+            title: "Journal",
         },
         contact_me: 'Contact Me',
         hero: {
@@ -87,11 +90,14 @@ export default {
     he: {
         name: 'קיילי בניסטי',
         nav: {
-            about: 'אודות',
-            skills: 'כישורים',
-            experience: 'ניסיון',
-            projects: 'פרויקטים',
-            education: 'השכלה',
+            about: "אודות",
+            skills: "כישורים",
+            experience: "ניסיון",
+            projects: "פרויקטים",
+            education: "השכלה",
+        },
+        journal: {
+            title: "יומן",
         },
         contact_me: 'צרו קשר',
         hero: {

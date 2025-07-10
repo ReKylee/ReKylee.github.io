@@ -7,15 +7,13 @@
     import Education from '$lib/components/Education.svelte';
 </script>
 
-<div class="container mx-auto px-4">
-    <Hero />
-    <About />
-    <div class="my-8 border-t border-ctp-surface1"></div>
-    <Skills />
-    <div class="my-8 border-t border-ctp-surface1"></div>
-    <Experience />
-    <div class="my-8 border-t border-ctp-surface1"></div>
-    <Projects />
-    <div class="my-8 border-t border-ctp-surface1"></div>
-    <Education />
-</div>
+<Hero />
+<About />
+<div class="my-8 border-t border-ctp-surface1"></div>
+<Skills />
+<div class="my-8 border-t border-ctp-surface1"></div>
+<Experience />
+<div class="my-8 border-t border-ctp-surface1"></div>
+<Projects />
+<div class="my-8 border-t border-ctp-surface1"></div>
+<Education />
