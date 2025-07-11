@@ -5,6 +5,7 @@
     import { theme } from "$lib/stores/theme";
     import { language } from "$lib/stores/language";
     import { browser } from "$app/environment";
+    import ScrollToTop from "$lib/components/ScrollToTop.svelte";
 
     theme.init();
     language.init();
@@ -20,6 +21,7 @@
     class:font-hebrew={$language === "he"}
 >
     <div
+        id="page-top"
         class="container mx-auto max-w-5xl bg-ctp-base p-4 shadow-2xl shadow-ctp-crust"
     >
         <Header />
@@ -28,4 +30,5 @@
         </main>
         <Footer />
     </div>
+    <ScrollToTop />
 </div>
