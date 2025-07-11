@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;700&display=swap");
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 @import "tailwindcss";
@@ -14,92 +14,92 @@
 
 @plugin "@tailwindcss/typography";
 @theme {
-  --font-sans: "JetBrains Mono", sans-serif;
-  --font-hebrew: "Noto Sans Hebrew", sans-serif;
+    --font-sans: "JetBrains Mono", sans-serif;
+    --font-hebrew: "Noto Sans Hebrew", sans-serif;
 }
 
 .font-hebrew {
-  font-family: var(--font-hebrew);
+    font-family: var(--font-hebrew);
 }
 
 .font-sans {
-  font-family: var(--font-sans);
+    font-family: var(--font-sans);
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 main {
-  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+    -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
 }
 .skill-chip {
-  @apply rounded-md bg-ctp-surface0 px-4 py-2 font-mono text-ctp-text shadow-md transition-all hover:scale-105 hover:text-ctp-base;
+    @apply rounded-md bg-ctp-surface0 px-4 py-2 font-mono text-ctp-text shadow-md transition-all hover:scale-105 hover:text-ctp-base;
 }
 .skill-chip.c-green {
-  @apply hover:bg-ctp-green;
+    @apply hover:bg-ctp-green;
 }
 .skill-chip.c-sky {
-  @apply hover:bg-ctp-sky;
+    @apply hover:bg-ctp-sky;
 }
 
 .controller-pile-container {
-  @apply flex h-16 w-16 items-center justify-center;
-  perspective: 500px;
+    @apply flex h-16 w-16 items-center justify-center;
+    perspective: 500px;
 }
 
 .controller-pile {
-  @apply relative h-full w-full;
-  transform-style: preserve-3d;
-  transition: transform 0.4s ease-in-out;
+    @apply relative h-full w-full;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease-in-out;
 }
 
 .controller-icon {
-  @apply absolute h-full w-full object-contain transition-all duration-400 ease-in-out;
-  /* Start with a base rotation to create the pile effect */
-  transform: rotateX(60deg) rotateZ(-30deg);
+    @apply absolute h-full w-full object-contain transition-all duration-400 ease-in-out;
+    /* Start with a base rotation to create the pile effect */
+    transform: rotateX(60deg) rotateZ(-30deg);
 }
 
 /* Position each controller in the pile */
 .controller-icon:nth-child(1) {
-  transform: rotateX(5deg) rotateZ(-10deg) translateZ(0px) translateX(-25px)
-    translateY(-10px);
-  z-index: 3;
+    transform: rotateX(5deg) rotateZ(-10deg) translateZ(0px) translateX(-25px)
+        translateY(-10px);
+    z-index: 3;
 }
 .controller-icon:nth-child(2) {
-  transform: rotateX(5deg) rotateZ(0deg) translateZ(5px) translateX(0px)
-    translateY(10px);
-  z-index: 2;
+    transform: rotateX(5deg) rotateZ(0deg) translateZ(5px) translateX(0px)
+        translateY(10px);
+    z-index: 2;
 }
 .controller-icon:nth-child(3) {
-  transform: rotateX(5deg) rotateZ(10deg) translateZ(10px) translateX(25px)
-    translateY(-10px);
-  z-index: 1;
+    transform: rotateX(5deg) rotateZ(10deg) translateZ(10px) translateX(25px)
+        translateY(-10px);
+    z-index: 1;
 }
 
 /* Conditional coloring based on theme */
 :global(html.latte) .controller-icon {
-  filter: invert(1); /* Black for light mode */
+    filter: invert(1); /* Black for light mode */
 }
 
 /* The Exploded View on Hover */
 .controller-pile-container:hover .controller-pile {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .controller-pile-container:hover .controller-icon {
-  transform: rotateX(0deg) rotateZ(0deg); /* Straighten out the icons */
+    transform: rotateX(0deg) rotateZ(0deg); /* Straighten out the icons */
 }
 
 /* Fan them out on hover */
 .controller-pile-container:hover .controller-icon:nth-child(1) {
-  transform: translateY(-35px) translateX(-15px) rotateZ(-15deg);
+    transform: translateY(-35px) translateX(-15px) rotateZ(-15deg);
 }
 .controller-pile-container:hover .controller-icon:nth-child(2) {
-  transform: translateY(-5px);
+    transform: translateY(-5px);
 }
 .controller-pile-container:hover .controller-icon:nth-child(3) {
-  transform: translateY(25px) translateX(15px) rotateZ(15deg);
+    transform: translateY(25px) translateX(15px) rotateZ(15deg);
 }
 /* New Thematic Styles */
 
@@ -107,146 +107,298 @@ main {
 
 /* For Programming Languages */
 .blinking-cursor {
-  animation: blink 1s step-end infinite;
+    animation: blink 1s step-end infinite;
 }
 @keyframes blink {
-  from,
-  to {
-    background-color: transparent;
-  }
-  50% {
-    background-color: #a6e3a1; /* ctp-green */
-  }
+    from,
+    to {
+        background-color: transparent;
+    }
+    50% {
+        background-color: #a6e3a1; /* ctp-green */
+    }
 }
 
 /* For Backend & Databases */
 .skill-node {
-  @apply w-3/4 rounded-lg bg-ctp-surface0 px-4 py-2 text-center font-mono text-ctp-text shadow-lg transition-all hover:scale-105 hover:text-ctp-base;
+    @apply w-3/4 rounded-lg bg-ctp-surface0 px-4 py-2 text-center font-mono text-ctp-text shadow-lg transition-all hover:scale-105 hover:text-ctp-base;
 }
 
 .skill-node.c-sky {
-  @apply hover:bg-ctp-sky;
+    @apply hover:bg-ctp-sky;
 }
 .section-animate {
-  opacity: 0;
-  transform: translateY(50px);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
+    opacity: 0;
+    transform: translateY(50px);
+    transition:
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out;
 }
 
 .section-animate.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* --- Corrected Glitch Effect --- */
 
 .glitch {
-  position: relative;
-  /* Using Catppuccin colors for better theme integration */
-  color: #cba6f7; /* Mauve */
+    position: relative;
+    /* Using Catppuccin colors for better theme integration */
+    color: #cba6f7; /* Mauve */
 }
 
 /* Common styles for the glitch layers */
 .glitch::before,
 .glitch::after {
-  content: attr(data-text); /* Use the text from the HTML element */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: #1e1e2e; /* Base color */
+    content: attr(data-text); /* Use the text from the HTML element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #1e1e2e; /* Base color */
 }
 
 /* Red channel effect */
 .glitch::before {
-  left: 3px;
-  text-shadow: -2px 0 #f38ba8; /* Red */
-  /* This animation uses steps for a sharp, random-feeling clip effect */
-  animation: glitch-animation-1 2s linear infinite reverse alternate;
+    left: 3px;
+    text-shadow: -2px 0 #f38ba8; /* Red */
+    /* This animation uses steps for a sharp, random-feeling clip effect */
+    animation: glitch-animation-1 2s linear infinite reverse alternate;
 }
 
 /* Blue channel effect */
 .glitch::after {
-  left: -3px;
-  text-shadow: -2px 0 #89b4fa; /* Blue */
-  animation: glitch-animation-2 2s linear infinite reverse alternate;
+    left: -3px;
+    text-shadow: -2px 0 #89b4fa; /* Blue */
+    animation: glitch-animation-2 2s linear infinite reverse alternate;
 }
 
 /* --- Keyframes --- */
 /* Manually creating steps to simulate the Sass @for loop and random() function */
 
 @keyframes glitch-animation-1 {
-  0% {
-    clip-path: inset(45px 0 105px 0);
-  }
-  10% {
-    clip-path: inset(10px 0 90px 0);
-  }
-  20% {
-    clip-path: inset(130px 0 5px 0);
-  }
-  30% {
-    clip-path: inset(50px 0 80px 0);
-  }
-  40% {
-    clip-path: inset(70px 0 15px 0);
-  }
-  50% {
-    clip-path: inset(140px 0 10px 0);
-  }
-  60% {
-    clip-path: inset(20px 0 125px 0);
-  }
-  70% {
-    clip-path: inset(100px 0 30px 0);
-  }
-  80% {
-    clip-path: inset(60px 0 40px 0);
-  }
-  90% {
-    clip-path: inset(120px 0 25px 0);
-  }
-  100% {
-    clip-path: inset(5px 0 110px 0);
-  }
+    0% {
+        clip-path: inset(45px 0 105px 0);
+    }
+    10% {
+        clip-path: inset(10px 0 90px 0);
+    }
+    20% {
+        clip-path: inset(130px 0 5px 0);
+    }
+    30% {
+        clip-path: inset(50px 0 80px 0);
+    }
+    40% {
+        clip-path: inset(70px 0 15px 0);
+    }
+    50% {
+        clip-path: inset(140px 0 10px 0);
+    }
+    60% {
+        clip-path: inset(20px 0 125px 0);
+    }
+    70% {
+        clip-path: inset(100px 0 30px 0);
+    }
+    80% {
+        clip-path: inset(60px 0 40px 0);
+    }
+    90% {
+        clip-path: inset(120px 0 25px 0);
+    }
+    100% {
+        clip-path: inset(5px 0 110px 0);
+    }
 }
 
 @keyframes glitch-animation-2 {
-  0% {
-    clip-path: inset(120px 0 15px 0);
-  }
-  10% {
-    clip-path: inset(40px 0 80px 0);
-  }
-  20% {
-    clip-path: inset(5px 0 130px 0);
-  }
-  30% {
-    clip-path: inset(90px 0 20px 0);
-  }
-  40% {
-    clip-path: inset(10px 0 100px 0);
-  }
-  50% {
-    clip-path: inset(115px 0 5px 0);
-  }
-  60% {
-    clip-path: inset(30px 0 70px 0);
-  }
-  70% {
-    clip-path: inset(145px 0 10px 0);
-  }
-  80% {
-    clip-path: inset(25px 0 95px 0);
-  }
-  90% {
-    clip-path: inset(105px 0 35px 0);
-  }
-  100% {
-    clip-path: inset(15px 0 120px 0);
-  }
+    0% {
+        clip-path: inset(120px 0 15px 0);
+    }
+    10% {
+        clip-path: inset(40px 0 80px 0);
+    }
+    20% {
+        clip-path: inset(5px 0 130px 0);
+    }
+    30% {
+        clip-path: inset(90px 0 20px 0);
+    }
+    40% {
+        clip-path: inset(10px 0 100px 0);
+    }
+    50% {
+        clip-path: inset(115px 0 5px 0);
+    }
+    60% {
+        clip-path: inset(30px 0 70px 0);
+    }
+    70% {
+        clip-path: inset(145px 0 10px 0);
+    }
+    80% {
+        clip-path: inset(25px 0 95px 0);
+    }
+    90% {
+        clip-path: inset(105px 0 35px 0);
+    }
+    100% {
+        clip-path: inset(15px 0 120px 0);
+    }
+}
+/* --- ASCII UI Styles --- */
+
+.ascii-border {
+    @apply border-2 border-ctp-surface0 p-4;
+}
+
+/* Base style for a clickable file line */
+.ascii-file-container {
+    @apply relative pl-4 pr-4; /* Add padding to make space for brackets */
+}
+
+/* Hide the brackets by default */
+.ascii-file-container::before,
+.ascii-file-container::after {
+    content: "";
+    @apply absolute top-0 text-ctp-mauve transition-opacity duration-150 opacity-0;
+}
+
+/* Show the brackets on hover/focus without causing a layout shift */
+.ascii-file-container:hover::before,
+.ascii-file-container:focus-within::before {
+    content: "[";
+    left: 0; /* Position in the padding */
+    opacity: 1;
+}
+.ascii-file-container:hover::after,
+.ascii-file-container:focus-within::after {
+    content: "]";
+    right: 0; /* Position in the padding */
+    opacity: 1;
+}
+
+/* An ASCII-style horizontal rule made of characters */
+.ascii-hr {
+    @apply w-full text-left text-ctp-surface1 overflow-hidden whitespace-nowrap;
+}
+.ascii-hr::after {
+    content: "---------------------------------------------------------------------------------------------------------";
+}
+/* --- High-Fidelity CRT Filter --- */
+
+/* Define the --harshness variable on the root for global access */
+:root {
+    --harshness: 0.15; /* Default value */
+}
+
+/* This pseudo-element creates the phosphor glow and screen curvature */
+body::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* The opacity now correctly reads the global --harshness variable */
+    opacity: var(--harshness);
+    background: radial-gradient(
+        ellipse at center,
+        rgba(80, 250, 123, 0.15) 0%,
+        rgba(80, 250, 123, 0) 100%
+    );
+    pointer-events: none;
+    z-index: 100;
+    transform: scale(1.1, 1.3);
+}
+
+/* This pseudo-element creates the scanlines and noise/flicker */
+body::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* The opacity here is now a multiple of the global --harshness variable */
+    opacity: calc(var(--harshness) * 2);
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.5) 0,
+        rgba(0, 0, 0, 0.5) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    pointer-events: none;
+    z-index: 101;
+    animation: crt-noise 0.5s linear infinite;
+}
+
+/* This wrapper applies the text glow to the entire app */
+.crt-wrapper {
+    /* The text-shadow creates the green phosphor bloom effect */
+    @apply text-shadow-ctp-green;
+    filter: blur(0.5px);
+    animation: crt-text-flicker 0.1s steps(1, end) infinite;
+}
+
+/* --- Keyframes for the Animations --- */
+
+/* The noise animation creates the horizontal jitter */
+@keyframes crt-noise {
+    0% {
+        background-position: 0 0;
+    }
+    10% {
+        background-position: -2px -2px;
+    }
+    20% {
+        background-position: 2px 2px;
+    }
+    30% {
+        background-position: -1px -1px;
+    }
+    40% {
+        background-position: 1px 1px;
+    }
+    50% {
+        background-position: 0 0;
+    }
+    60% {
+        background-position: -2px 2px;
+    }
+    70% {
+        background-position: 2px -2px;
+    }
+    80% {
+        background-position: -1px 1px;
+    }
+    90% {
+        background-position: 1px -1px;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* The text flicker adds to the instability of the display */
+@keyframes crt-text-flicker {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.95;
+    }
+}
+
+/* We still need this for the <CRTFilter> component to hook into */
+.crt-filter {
+    --harshness: 0.15; /* This will be controlled by your slider */
 }

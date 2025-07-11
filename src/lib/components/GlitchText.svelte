@@ -45,7 +45,6 @@
     const scramble = () => {
         if (scrambleIntervalId) clearInterval(scrambleIntervalId);
 
-        // --- THE FIX: Generate the reveal order based on the new prop ---
         let indices = text.split("").map((_, i) => i);
         if (revealOrder === "random") {
             // Shuffle for random order

@@ -6,6 +6,7 @@
     import ExperienceSection from "$lib/components/ExperienceSection.svelte";
     import ProjectsSection from "$lib/components/ProjectsSection.svelte";
     import EducationSection from "$lib/components/EducationSection.svelte";
+    import Terminal from "$lib/components/terminal/Terminal.svelte";
 </script>
 
 <div class="space-y-16">
@@ -30,11 +31,12 @@
 
     <AboutSection />
 
-    <SkillsSection />
+    <EducationSection />
 
     <ExperienceSection />
 
-    <ProjectsSection />
+    <SkillsSection />
 
-    <EducationSection />
+    <ProjectsSection />
+    <Terminal />
 </div>

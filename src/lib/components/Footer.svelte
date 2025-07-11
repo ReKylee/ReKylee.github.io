@@ -1,5 +1,6 @@
 <script>
     import { t } from "$lib/stores/language";
+    import CRTControl from "$lib/components/CRTControl.svelte";
 </script>
 
 <footer class="mt-16 border-t-2 border-ctp-surface1 pt-8 text-center">
@@ -72,6 +73,9 @@
                 ></path><polyline points="22,6 12,13 2,6"></polyline></svg
             >
         </a>
+    </div>
+    <div class="mt-8 flex justify-center">
+        <CRTControl />
     </div>
     <p class="text-sm text-ctp-subtext1">{@html $t("footer.copy")}</p>
 </footer>
