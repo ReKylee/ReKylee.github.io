@@ -1,8 +1,8 @@
 <script>
-    import Nav from "$lib/components/Nav.svelte";
-    import ThemeSwitch from "$lib/components/ThemeSwitch.svelte";
+    import Nav from "$lib/components/layout/Nav.svelte";
+    import ThemeSwitch from "$lib/components/ui/ThemeSwitch.svelte";
     import { t, language } from "$lib/stores/language";
-    import GlitchText from "./GlitchText.svelte";
+    import GlitchText from "../ui/GlitchText.svelte";
 </script>
 
 <header

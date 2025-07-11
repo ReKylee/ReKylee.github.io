@@ -1,7 +1,7 @@
 <script>
     import { t } from "$lib/stores/language";
-    import Section from "$lib/components/Section.svelte";
-    import ProjectCard from "$lib/components/ProjectCard.svelte";
+    import Section from "$lib/components/ui/Section.svelte";
+    import ProjectCard from "$lib/components/ui/ProjectCard.svelte";
 </script>
 
 <Section id="projects" title={$t("projects.title")}>

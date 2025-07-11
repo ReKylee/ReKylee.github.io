@@ -1,9 +1,9 @@
 <script>
     import { t } from "$lib/stores/language";
-    import Section from "$lib/components/Section.svelte";
-    import SkillCard from "$lib/components/SkillCard.svelte";
-    import SkillIcon from "$lib/components/SkillIcon.svelte";
-    import BlinkingCursor from "$lib/components/BlinkingCursor.svelte";
+    import Section from "$lib/components/ui/Section.svelte";
+    import SkillCard from "$lib/components/ui/SkillCard.svelte";
+    import SkillIcon from "$lib/components/ui/SkillIcon.svelte";
+    import BlinkingCursor from "$lib/components/ui/BlinkingCursor.svelte";
 </script>
 
 <Section id="skills" title={$t("skills.title")}>

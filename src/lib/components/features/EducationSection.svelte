@@ -1,7 +1,7 @@
 <script>
     import { t } from "$lib/stores/language";
-    import Section from "$lib/components/Section.svelte";
-    import Timeline from "$lib/components/Timeline.svelte";
+    import Section from "$lib/components/ui/Section.svelte";
+    import Timeline from "$lib/components/ui/Timeline.svelte";
 </script>
 
 <Section id="education" title={$t("education.title")}>

@@ -1,6 +1,6 @@
 <script>
     import { t } from "$lib/stores/language";
-    import CRTControl from "$lib/components/CRTControl.svelte";
+    import CRTControl from "$lib/components/ui/CRTControl.svelte";
 </script>
 
 <footer class="mt-16 border-t-2 border-ctp-surface1 pt-8 text-center">

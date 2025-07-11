@@ -1,12 +1,12 @@
 <script>
     import { t } from "$lib/stores/language";
-    import Typewriter from "$lib/components/Typewriter.svelte";
-    import AboutSection from "$lib/components/AboutSection.svelte";
-    import SkillsSection from "$lib/components/SkillsSection.svelte";
-    import ExperienceSection from "$lib/components/ExperienceSection.svelte";
-    import ProjectsSection from "$lib/components/ProjectsSection.svelte";
-    import EducationSection from "$lib/components/EducationSection.svelte";
-    import Terminal from "$lib/components/terminal/Terminal.svelte";
+    import Typewriter from "$lib/components/ui/Typewriter.svelte";
+    import AboutSection from "$lib/components/features/AboutSection.svelte";
+    import SkillsSection from "$lib/components/features/SkillsSection.svelte";
+    import ExperienceSection from "$lib/components/features/ExperienceSection.svelte";
+    import ProjectsSection from "$lib/components/features/ProjectsSection.svelte";
+    import EducationSection from "$lib/components/features/EducationSection.svelte";
+    import Terminal from "$lib/components/features/terminal/Terminal.svelte";
 </script>
 
 <div class="space-y-16">

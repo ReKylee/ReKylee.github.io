@@ -1,12 +1,12 @@
 <script>
     import "../app.css";
-    import Header from "$lib/components/Header.svelte";
-    import Footer from "$lib/components/Footer.svelte";
+    import Header from "$lib/components/layout/Header.svelte";
+    import Footer from "$lib/components/layout/Footer.svelte";
     import { theme } from "$lib/stores/theme";
     import { language } from "$lib/stores/language";
     import { browser } from "$app/environment";
-    import ScrollToTop from "$lib/components/ScrollToTop.svelte";
-    import CRTFilter from "$lib/components/CRTFilter.svelte";
+    import ScrollToTop from "$lib/components/layout/ScrollToTop.svelte";
+    import CRTFilter from "$lib/components/ui/CRTFilter.svelte";
     theme.init();
     language.init();
 

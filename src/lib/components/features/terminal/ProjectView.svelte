@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { Project } from "$lib/data/projects";
     import { closeProject } from "$lib/stores/terminalStore";
-    import GlitchText from "../GlitchText.svelte";
+    import GlitchText from "../../ui/GlitchText.svelte";
     import { fade } from "svelte/transition";
 
     export let project: Project;
