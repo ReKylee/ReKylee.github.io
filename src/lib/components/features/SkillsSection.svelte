@@ -21,9 +21,8 @@
             <DecoBG
                 icons={controllerIcons}
                 scale={40}
-                spacing={80}
+                spacing={40}
                 rotation={-15}
-                color="text-ctp-subtext0"
             >
                 <div
                     class="flex flex-wrap items-center justify-center gap-4 p-4"
