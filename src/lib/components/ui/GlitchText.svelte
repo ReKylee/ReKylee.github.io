@@ -108,7 +108,6 @@
     on:mouseleave={stopScramble}
     on:keydown={(e) => {
         if (!href && (e.key === "Enter" || e.key === " ")) scramble();
-    }}
->
+    }}>
     {displayedText}
 </svelte:element>

@@ -12,8 +12,7 @@
             class="relative mx-auto h-[var(--toggleHeight)] w-[var(--toggleWidth)] rounded-[var(--toggleHeight)] transition-all duration-500 ease-in-out"
             class:bg-ctp-peach={$theme === "light"}
             class:bg-ctp-surface0={$theme !== "light"}
-            style="--toggleHeight: 16em; --toggleWidth: 30em; --toggleBtnRadius: 10em; font-size: 15%;"
-        >
+            style="--toggleHeight: 16em; --toggleWidth: 30em; --toggleBtnRadius: 10em; font-size: 15%;">
             <div
                 class="absolute block rounded-full transition-all duration-400 ease-in-out"
                 class:top-[4.5em]={$theme === "light"}
@@ -31,8 +30,8 @@
                 class:h-[var(--toggleBtnRadius)]={$theme !== "light"}
                 class:bg-ctp-surface0={$theme !== "light"}
                 class:shadow-[3em_2.5em_0_0em_#f9e2af_inset,rgba(249,226,175,0.1)_0em_-7em_0_-4.5em,rgba(249,226,175,0.1)_3em_7em_0_-4.5em,rgba(249,226,175,0.1)_2em_13em_0_-4em,rgba(249,226,175,0.1)_6em_2em_0_-4.1em,rgba(249,226,175,0.1)_8em_8em_0_-4.5em,rgba(249,226,175,0.1)_6em_13em_0_-4.5em,rgba(249,226,175,0.1)_-4em_7em_0_-4.5em,rgba(249,226,175,0.1)_-1em_10em_0_-4.5em]={$theme !==
-                    "light"}
-            ></div>
+                    "light"}>
+            </div>
         </div>
     </button>
 </div>

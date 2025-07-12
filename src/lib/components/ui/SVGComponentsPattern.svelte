@@ -40,8 +40,7 @@
                     id={patternId}
                     patternUnits="userSpaceOnUse"
                     width={patternSize}
-                    height={patternSize}
-                >
+                    height={patternSize}>
                     {#each icons as _, i}
                         <use
                             href="#pattern-icon-{patternId}-{i}"
@@ -54,8 +53,7 @@
                                 scale / 2}, {Math.floor(i / 2) *
                                 (patternSize / 2) +
                                 scale / 2})"
-                            fill="currentColor"
-                        />
+                            fill="currentColor" />
                     {/each}
                 </pattern>
             </defs>

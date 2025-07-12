@@ -17,6 +17,5 @@
                 title: $t("experience.exp2.title"),
                 desc: $t("experience.exp2.desc"),
             },
-        ]}
-    />
+        ]} />
 </Section>

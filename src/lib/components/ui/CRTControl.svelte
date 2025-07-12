@@ -11,6 +11,5 @@
         max="1"
         step="0.05"
         bind:value={$crtHarshness}
-        class="w-24 accent-ctp-mauve"
-    />
+        class="w-24 accent-ctp-mauve" />
 </div>

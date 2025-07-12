@@ -19,8 +19,7 @@
     <div class="min-h-screen bg-ctp-crust font-sans text-ctp-text">
         <div
             id="page-top"
-            class="container mx-auto max-w-5xl bg-ctp-base p-4 shadow-2xl shadow-ctp-crust"
-        >
+            class="container mx-auto max-w-5xl bg-ctp-base p-4 shadow-2xl shadow-ctp-crust">
             <Header />
             <main class="p-4">
                 <slot />

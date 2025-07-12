@@ -19,20 +19,17 @@
                 <img
                     src={project.visual.src}
                     alt={project.title}
-                    class="w-full h-auto border-2 border-ctp-surface1 p-1"
-                />
+                    class="w-full h-auto border-2 border-ctp-surface1 p-1" />
             {:else if project.visual.type === "video"}
                 <video
                     controls
-                    class="w-full h-auto border-2 border-ctp-surface1 p-1"
-                >
+                    class="w-full h-auto border-2 border-ctp-surface1 p-1">
                     <source src={project.visual.src} type="video/mp4" />
                     <track
                         kind="captions"
                         src={project.visual.src.replace(".mp4", ".vtt")}
                         srclang="en"
-                        label="English"
-                    />
+                        label="English" />
                     Your browser does not support the video tag.
                 </video>
             {/if}
@@ -44,8 +41,7 @@
             ><span>|</span><span>|</span><span>|</span><span>|</span><span
                 >|</span
             ><span>|</span><span>|</span><span>|</span><span>|</span><span
-                >|</span
-            >
+                >|</span>
         </div>
 
         <div class="details-container">
@@ -63,7 +59,6 @@
         <button
             on:click={closeProject}
             class="text-ctp-red hover:bg-ctp-red hover:text-ctp-base p-1"
-            >[EXIT]</button
-        >
+            >[EXIT]</button>
     </footer>
 </div>

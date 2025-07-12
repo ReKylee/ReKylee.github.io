@@ -14,8 +14,7 @@
     class="animate-fade-in-up group relative overflow-hidden rounded-lg border-2 border-ctp-surface1 bg-ctp-mantle p-6 shadow-xl transition-all {borderClasses[
         theme
     ]}"
-    style="animation-delay: {delay}ms;"
->
+    style="animation-delay: {delay}ms;">
     <div class="text-center">
         <div class="flex items-center justify-center gap-4">
             <slot name="icon-left" />

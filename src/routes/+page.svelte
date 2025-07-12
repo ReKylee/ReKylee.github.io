@@ -19,13 +19,11 @@
             <a
                 href="#projects"
                 class="rounded-md bg-ctp-mauve px-6 py-2 text-ctp-base transition-all hover:scale-105"
-                >{$t("hero.view_work")}</a
-            >
+                >{$t("hero.view_work")}</a>
             <a
                 href="#skills"
                 class="rounded-md border border-ctp-lavender px-6 py-2 text-ctp-lavender transition-all hover:scale-105 hover:bg-ctp-lavender hover:text-ctp-base"
-                >{$t("hero.see_skills")}</a
-            >
+                >{$t("hero.see_skills")}</a>
         </div>
     </header>
 

@@ -19,6 +19,5 @@
                 school: $t("education.edu2.school"),
                 desc: $t("education.edu2.desc"),
             },
-        ]}
-    />
+        ]} />
 </Section>

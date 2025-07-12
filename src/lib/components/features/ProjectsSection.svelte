@@ -8,15 +8,12 @@
     <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
         <ProjectCard
             title={$t("projects.proj1.title")}
-            desc={$t("projects.proj1.desc")}
-        />
+            desc={$t("projects.proj1.desc")} />
         <ProjectCard
             title={$t("projects.proj2.title")}
-            desc={$t("projects.proj2.desc")}
-        />
+            desc={$t("projects.proj2.desc")} />
         <ProjectCard
             title={$t("projects.proj3.title")}
-            desc={$t("projects.proj3.desc")}
-        />
+            desc={$t("projects.proj3.desc")} />
     </div>
 </Section>

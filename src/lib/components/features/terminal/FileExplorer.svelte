@@ -12,8 +12,7 @@
         {#each projects as project, index ((project.id, index))}
             <button
                 class="ascii-file-container w-full text-left"
-                on:click={() => viewProject(project)}
-            >
+                on:click={() => viewProject(project)}>
                 <ProjectFile {project} />
             </button>
         {/each}

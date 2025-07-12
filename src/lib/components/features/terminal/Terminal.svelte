@@ -27,8 +27,7 @@
 
 <div
     bind:this={terminalElement}
-    class="font-mono bg-ctp-crust text-ctp-green h-[60vh] ascii-border"
->
+    class="font-mono bg-ctp-crust text-ctp-green h-[60vh] ascii-border">
     {#if $terminalStore.state === "waiting"}
         <p>> STANDBY_</p>
     {:else if $terminalStore.state === "booting"}

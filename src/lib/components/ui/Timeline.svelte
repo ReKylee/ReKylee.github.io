@@ -6,8 +6,8 @@
     {#each events as event, i}
         <div class="mb-8">
             <div
-                class="absolute -left-3 mt-1.5 h-5 w-5 rounded-full bg-ctp-yellow"
-            ></div>
+                class="absolute -left-3 mt-1.5 h-5 w-5 rounded-full bg-ctp-yellow">
+            </div>
             <p class="text-sm text-ctp-subtext0">{event.date}</p>
             <h3 class="text-xl font-semibold text-ctp-lavender">
                 {event.title}
