@@ -4,6 +4,7 @@
     import SkillCard from "$lib/components/ui/SkillCard.svelte";
     import SkillIcon from "$lib/components/ui/SkillIcon.svelte";
     import BlinkingCursor from "$lib/components/ui/BlinkingCursor.svelte";
+    import DecoBG from "$lib/components/ui/DecoBG/DecoBG.svelte";
 </script>
 
 <Section id="skills" title={$t("skills.title")}>
@@ -14,40 +15,24 @@
     </div>
     <div class="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
         <SkillCard title={$t("skills.engines")} theme="mauve">
-            <div slot="icon-left" class="controller-pile-container">
-                <div class="controller-pile">
-                    <img
-                        src="/ryan-beck-dreamcast-controller.svg"
-                        alt="Dreamcast Controller"
-                        class="controller-icon invert dark:invert-0 brightness-50 dark:brightness-110 group-hover:drop-shadow-[0_0_8px_theme(colors.ctp.mauve)]"
+            <DecoBG>
+                <div
+                    class="flex flex-wrap items-center justify-center gap-4 p-4"
+                >
+                    <SkillIcon
+                        lightSrc="/unity-original-wordmark-logo_light.svg"
+                        darkSrc="/unity-original-wordmark-logo_dark.svg"
+                        alt="Unity Logo"
                     />
-                    <img
-                        src="/ryan-beck-gamecube-controller.svg"
-                        alt="Gamecube Controller"
-                        class="controller-icon invert dark:invert-0 brightness-75 dark:brightness-100 group-hover:drop-shadow-[0_0_8px_theme(colors.ctp.mauve)]"
-                    />
-                    <img
-                        src="/ryan-beck-wii-controller.svg"
-                        alt="Wii Controller"
-                        class="controller-icon invert dark:invert-0 brightness-90 dark:brightness-90 group-hover:drop-shadow-[0_0_8px_theme(colors.ctp.mauve)]"
+
+                    <SkillIcon
+                        lightSrc="/godot_logo_vertical_color_light.svg"
+                        darkSrc="/godot_logo_vertical_color_dark.svg"
+                        alt="Godot Logo"
+                        delay={300}
                     />
                 </div>
-            </div>
-
-            <div class="flex flex-wrap items-center justify-center gap-4 p-4">
-                <SkillIcon
-                    lightSrc="/unity-original-wordmark-logo_light.svg"
-                    darkSrc="/unity-original-wordmark-logo_dark.svg"
-                    alt="Unity Logo"
-                />
-
-                <SkillIcon
-                    lightSrc="/godot_logo_vertical_color_light.svg"
-                    darkSrc="/godot_logo_vertical_color_dark.svg"
-                    alt="Godot Logo"
-                    delay={300}
-                />
-            </div>
+            </DecoBG>
         </SkillCard>
         <SkillCard title={$t("skills.languages")} theme="green" delay={150}>
             <svg
