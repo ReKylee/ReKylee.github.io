@@ -18,7 +18,7 @@
     <div class="text-center">
         <div class="flex items-center justify-center gap-4">
             <slot name="icon-left" />
-            <h3 class="text-2xl font-bold text-ctp-{theme}">
+            <h3 class="z-1 text-2xl font-bold text-ctp-{theme}">
                 {title}
             </h3>
             <slot name="icon-right" />

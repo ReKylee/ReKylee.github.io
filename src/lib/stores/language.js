@@ -1,5 +1,5 @@
 import { writable, derived } from "svelte/store";
-import translations from "$lib/utils/i18n";
+import translations from "$lib/data/i18n";
 import { browser } from "$app/environment";
 
 const createLanguageStore = () => {

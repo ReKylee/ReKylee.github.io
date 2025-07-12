@@ -10,6 +10,8 @@
     import WiiContriller from "$lib/icons/ryan-beck-wii-controller.svg?component";
     import NESController from "$lib/icons/ryan-beck-nes-controller.svg?component";
     import NSFController from "$lib/icons/ryan-beck-n64-controller.svg?component";
+    import PSVita from "$lib/icons/ryan-beck-psvita-controller.svg?component";
+    import GBSP from "$lib/icons/ryan-beck-sp-controller.svg?component";
     // Logos
     import GodotLogoLight from "$lib/assets/godot_logo_vertical_color_light.svg?component";
     import GodotLogoDark from "$lib/assets/godot_logo_vertical_color_dark.svg?component";
@@ -23,6 +25,8 @@
         WiiContriller,
         NESController,
         NSFController,
+        PSVita,
+        GBSP,
     ];
 </script>
 
@@ -36,19 +40,19 @@
         <SkillCard title={$t("skills.engines")} theme="mauve">
             <DecoBG
                 icons={controllerIcons}
-                scale={40}
-                spacing={40}
+                scale={60}
+                spacing={30}
                 rotation={-15} />
             <div class="flex flex-wrap items-center justify-center gap-4 p-4">
                 <SkillIcon
-                    lightIcon={UnityLogoLight}
-                    darkIcon={UnityLogoDark}
+                    darkIcon={UnityLogoLight}
+                    lightIcon={UnityLogoDark}
                     alt="Unity Logo"
                     delay={300} />
 
                 <SkillIcon
-                    lightIcon={GodotLogoLight}
-                    darkIcon={GodotLogoDark}
+                    darkIcon={GodotLogoLight}
+                    lightIcon={GodotLogoDark}
                     alt="Godot Logo" />
             </div>
         </SkillCard>

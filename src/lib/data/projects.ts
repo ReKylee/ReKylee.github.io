@@ -5,7 +5,7 @@ export interface Project {
     date: string; // e.g., "Jul 08 2024"
     description: string;
     visual: {
-        type: "image" | "video";
+        type: "image" | "video" | "embed";
         src: string;
     };
     tech: string[];
@@ -19,7 +19,7 @@ export interface Project {
 export const projects: Project[] = [
     {
         id: "proj_gamejam_2024",
-        title: "Game Jam Winner 2024",
+        title: "Game Jam 2024",
         extension: "sysX",
         date: "Jul 08 2024",
         description:

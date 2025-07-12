@@ -11,15 +11,6 @@
 @theme {
     --font-sans: "JetBrains Mono", sans-serif;
     --font-hebrew: "Noto Sans Hebrew", sans-serif;
-    --animate-infinite-pan: infinite-pan 60s linear infinite;
-    @keyframes infinite-pan {
-        0% {
-            pattern-transform: translate(0, 0);
-        }
-        100% {
-            pattern-transform: translate(250px, 250px);
-        }
-    }
 }
 * {
     box-sizing: border-box;
