@@ -1,11 +1,13 @@
 <script>
-    import { t } from "$lib/stores/language";
+    import BlinkingCursor from "$lib/components/ui/BlinkingCursor.svelte";
+    import DecoBG from "$lib/components/ui/DecoBG/DecoBG.svelte";
     import Section from "$lib/components/ui/Section.svelte";
     import SkillCard from "$lib/components/ui/SkillCard.svelte";
     import SkillIcon from "$lib/components/ui/SkillIcon.svelte";
-    import BlinkingCursor from "$lib/components/ui/BlinkingCursor.svelte";
-    import DecoBG from "$lib/components/ui/DecoBG/DecoBG.svelte";
-    import ControllerSvgDefs from "../ui/DecoBG/ControllerSvgDefs.svelte";
+    import DreamcastController from "$lib/icons/ryan-beck-dreamcast-controller.svg?component";
+    import GamecubeController from "$lib/icons/ryan-beck-gamecube-controller.svg?component";
+    import { t } from "$lib/stores/language";
+    const controllerIcons = [DreamcastController, GamecubeController];
 </script>
 
 <Section id="skills" title={$t("skills.title")}>
@@ -16,10 +18,13 @@
     </div>
     <div class="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
         <SkillCard title={$t("skills.engines")} theme="mauve">
-            <DecoBG>
-                <svelte:fragment slot="defs">
-                    <ControllerSvgDefs />
-                </svelte:fragment>
+            <DecoBG
+                icons={controllerIcons}
+                scale={40}
+                spacing={80}
+                rotation={-15}
+                color="text-ctp-subtext0"
+            >
                 <div
                     class="flex flex-wrap items-center justify-center gap-4 p-4"
                 >
