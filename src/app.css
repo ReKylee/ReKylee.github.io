@@ -11,6 +11,15 @@
 @theme {
     --font-sans: "JetBrains Mono", sans-serif;
     --font-hebrew: "Noto Sans Hebrew", sans-serif;
+    --animate-infinite-pan: infinite-pan 60s linear infinite;
+    @keyframes infinite-pan {
+        0% {
+            pattern-transform: translate(0, 0);
+        }
+        100% {
+            pattern-transform: translate(250px, 250px);
+        }
+    }
 }
 * {
     box-sizing: border-box;
@@ -22,6 +31,7 @@ html {
 main {
     -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
 }
+
 .skill-chip {
     @apply rounded-md bg-ctp-surface0 px-4 py-2 font-mono text-ctp-text shadow-md transition-all hover:scale-105 hover:text-ctp-base;
 }

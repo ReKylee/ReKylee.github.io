@@ -24,6 +24,20 @@ export default defineConfig({
                 ],
             },
         }),
+        svg({
+            // Process SVG files in this directory as icons
+            includePaths: ["./src/lib/assets/"],
+            svgoOptions: {
+                multipass: true,
+                plugins: [
+                    {
+                        name: "preset-default",
+                        // Keep the viewBox attribute for proper scaling
+                        params: { overrides: { removeViewBox: false } },
+                    },
+                ],
+            },
+        }),
     ],
     base: process.env.BASE_PATH,
 });
