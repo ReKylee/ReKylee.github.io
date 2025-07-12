@@ -5,6 +5,7 @@
     import SkillIcon from "$lib/components/ui/SkillIcon.svelte";
     import BlinkingCursor from "$lib/components/ui/BlinkingCursor.svelte";
     import DecoBG from "$lib/components/ui/DecoBG/DecoBG.svelte";
+    import ControllerSvgDefs from "../ui/DecoBG/ControllerSvgDefs.svelte";
 </script>
 
 <Section id="skills" title={$t("skills.title")}>
@@ -16,6 +17,9 @@
     <div class="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
         <SkillCard title={$t("skills.engines")} theme="mauve">
             <DecoBG>
+                <svelte:fragment slot="defs">
+                    <ControllerSvgDefs />
+                </svelte:fragment>
                 <div
                     class="flex flex-wrap items-center justify-center gap-4 p-4"
                 >
