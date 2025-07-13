@@ -1,6 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;700&display=swap");
-
 @import "tailwindcss";
 @import "@catppuccin/tailwindcss/mocha.css";
 
@@ -11,6 +8,11 @@
 @theme {
     --font-sans: "JetBrains Mono", sans-serif;
     --font-hebrew: "Noto Sans Hebrew", sans-serif;
+}
+@layer base {
+    *:lang(he) {
+        @apply font-hebrew;
+    }
 }
 * {
     box-sizing: border-box;
@@ -55,10 +57,6 @@ main {
 }
 
 /* --- ASCII UI Styles --- */
-
-.ascii-border {
-    @apply border-2 border-ctp-surface0 p-4;
-}
 
 /* Base style for a clickable file line */
 .ascii-file-container {
@@ -143,7 +141,7 @@ body::after {
     z-index: 101;
     animation: crt-noise 0.5s linear infinite;
 }
-/* FIX: CANT BE TURNED OFF WITH THE SLIDER */
+
 /* This wrapper applies the text glow to the entire app */
 .crt-wrapper {
     /* The blur is always active */

@@ -28,6 +28,8 @@
 
 <div
     bind:this={terminalElement}
+    dir="ltr"
+    lang="en"
     class="
     relative
     w-full
@@ -42,7 +44,7 @@
     text-ctp-green
     p-4
     rounded
-    ascii-border
+    border-2 border-ctp-surface0
   ">
     {#if $terminalStore.state === "waiting"}
         <div class="absolute inset-0 p-4">

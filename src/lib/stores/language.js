@@ -12,15 +12,18 @@ const createLanguageStore = () => {
         subscribe,
         setLang: (/** @type {string} */ lang) => {
             if (browser) {
+                document.documentElement.lang = lang;
+                document.documentElement.dir = lang === "he" ? "rtl" : "ltr";
                 localStorage.setItem("language", lang);
-                console.log("Setting language to:", lang);
             }
             set(lang);
         },
         init: () => {
             if (browser) {
                 const savedLang = localStorage.getItem("language") || "en";
-                console.log("Initializing language to:", savedLang);
+                document.documentElement.lang = savedLang;
+                document.documentElement.dir =
+                    savedLang === "he" ? "rtl" : "ltr";
                 set(savedLang);
             }
         },
