@@ -4,7 +4,6 @@
     import BootSequence from "./BootSequence.svelte";
     import FileExplorer from "./FileExplorer.svelte";
     import ProjectView from "./ProjectView.svelte";
-    import TerminalReveal from "./TerminalReveal.svelte";
 
     import { projects } from "$lib/data/projects";
 
@@ -35,12 +34,8 @@
     {:else if $terminalStore.state === "booting"}
         <BootSequence />
     {:else if $terminalStore.state === "listing_files"}
-        <TerminalReveal>
-            <FileExplorer {projects} />
-        </TerminalReveal>
+        <FileExplorer {projects} />
     {:else if $terminalStore.state === "viewing_project" && $terminalStore.activeProject}
-        <TerminalReveal>
-            <ProjectView project={$terminalStore.activeProject} />
-        </TerminalReveal>
+        <ProjectView project={$terminalStore.activeProject} />
     {/if}
 </div>
