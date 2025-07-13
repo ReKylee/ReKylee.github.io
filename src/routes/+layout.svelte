@@ -6,7 +6,6 @@
     import { language } from "$lib/stores/language";
     import { browser } from "$app/environment";
     import ScrollToTop from "$lib/components/layout/ScrollToTop.svelte";
-    import CRTFilter from "$lib/components/ui/CRTFilter.svelte";
     theme.init();
     language.init();
 
@@ -30,5 +29,3 @@
         <ScrollToTop />
     </div>
 </div>
-
-<CRTFilter />

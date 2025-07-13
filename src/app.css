@@ -146,12 +146,30 @@ body::after {
 /* FIX: CANT BE TURNED OFF WITH THE SLIDER */
 /* This wrapper applies the text glow to the entire app */
 .crt-wrapper {
-    /* The text-shadow creates the green phosphor bloom effect */
-    @apply text-shadow-ctp-green;
+    /* The blur is always active */
     filter: blur(0.5px);
+
+    /* The glow from the text-shadow now uses the --harshness variable for its alpha channel */
+    text-shadow: 0 0 3px rgba(166, 227, 161, var(--harshness, 0.15));
+
+    /* The flicker animation is always running */
     animation: crt-text-flicker 0.1s steps(1, end) infinite;
 }
 
+@keyframes crt-text-flicker {
+    /*
+    The flicker now toggles between the base opacity and a slightly lower one.
+    When --harshness is 0, this does nothing. When it's high, the flicker is noticeable.
+  */
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        /* Example: if harshness is 0.5, opacity becomes 1 - (0.5 * 0.3) = 0.85 */
+        opacity: calc(1 - var(--harshness, 0.15) * 0.3);
+    }
+}
 /* --- Keyframes for the Animations --- */
 
 /* The noise animation creates the horizontal jitter */
@@ -189,20 +207,4 @@ body::after {
     100% {
         background-position: 0 0;
     }
-}
-
-/* The text flicker adds to the instability of the display */
-@keyframes crt-text-flicker {
-    0%,
-    100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.95;
-    }
-}
-
-/* We still need this for the <CRTFilter> component to hook into */
-.crt-filter {
-    --harshness: 0.15; /* This will be controlled by your slider */
 }
