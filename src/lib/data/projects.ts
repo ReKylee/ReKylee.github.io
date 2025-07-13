@@ -48,7 +48,6 @@ export const projects: Project[] = [
             github: "https://github.com/ReKylee/KirbyCharacterController",
         },
     },
-
     {
         id: "proj_freelance_backend",
         title: "Freelance Backend System",
@@ -60,9 +59,39 @@ export const projects: Project[] = [
             type: "image",
             src: "/images/sample-image.png",
         },
-        tech: ["Node.js", "TypeScript", "MongoDB", "Zod", "Neverthrow"],
+        tech: [
+            "Node.js",
+            "Express",
+            "TypeScript",
+            "MySQL",
+            "Zod",
+            "Neverthrow",
+        ],
         links: {
-            github: "#",
+            github: "https://github.com/ReKylee/BarberAppBackendDemo",
+        },
+    },
+    {
+        id: "proj_notes_backend",
+        title: "Freelance Backend System",
+        extension: "sysX",
+        date: "Aug 01 2025",
+        description:
+            "Developed the backend for our final Web Development project using TypeScript and Domain-Driven Design, handling everything from data modeling to admin-specific API endpoints.",
+        visual: {
+            type: "image",
+            src: "/images/sample-image.png",
+        },
+        tech: [
+            "Node.js",
+            "Express",
+            "TypeScript",
+            "MongoDB",
+            "Zod",
+            "Neverthrow",
+        ],
+        links: {
+            github: "https://github.com/ReKylee/PickMi-Backend",
         },
     },
     {
@@ -82,6 +111,20 @@ export const projects: Project[] = [
         },
     },
     {
+        id: "proj_gametracker",
+        title: "Game Completion Tracking Website",
+        extension: "build",
+        date: "Mar 23 2025",
+        description:
+            "Designed and built, in a day, a responsive and sweet game completion tracker!",
+        visual: {
+            type: "image",
+            src: "/GameTracker.gif",
+        },
+        tech: ["Node.js", "Express", "Javascript", "MySQL"],
+        links: {},
+    },
+    {
         id: "proj_battleships",
         title: "Battleships In The Terminal",
         extension: "dbin",
@@ -97,7 +140,6 @@ export const projects: Project[] = [
             github: "https://github.com/ReKylee/BattleshipsHW",
         },
     },
-
     {
         id: "proj_ultimate_charactercatalog",
         title: "Ultimate Character Catalog",
@@ -112,6 +154,21 @@ export const projects: Project[] = [
         tech: ["C", "C++", "Libraries", "UI"],
         links: {
             github: "https://github.com/ReKylee/CatalogApp",
+        },
+    },
+    {
+        id: "proj_jujutsu_nvim",
+        title: "Jujutsu NeoVim",
+        extension: "build",
+        date: "Jun 28 2025",
+        description: "Jujutsu Version Control Integration for NeoVim",
+        visual: {
+            type: "image",
+            src: "/jjnvim.gif",
+        },
+        tech: ["Lua"],
+        links: {
+            github: "https://github.com/ReKylee/jjui.nvim",
         },
     },
 ];
