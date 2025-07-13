@@ -2,6 +2,8 @@
     export let lineHeight = 24; // height of one "line", adjust to match your font
     export let lines = 20; // number of visual lines (used only for animation steps)
     export let duration = 1000; // total animation time
+
+    // TODO: REPLACE THIS WITH SOMETHING ELSE OR NOTHING AT ALL;
 </script>
 
 <div

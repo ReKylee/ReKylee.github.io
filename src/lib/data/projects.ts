@@ -1,8 +1,8 @@
 export interface Project {
     id: string;
     title: string;
-    extension: "sysX" | "dbin" | "build"; // Custom file extensions
-    date: string; // e.g., "Jul 08 2024"
+    extension: "sysX" | "dbin" | "build";
+    date: string;
     description: string;
     visual: {
         type: "image" | "video" | "embed";
@@ -15,41 +15,40 @@ export interface Project {
     };
 }
 
-// Fill this array with your actual project data
 export const projects: Project[] = [
     {
-        id: "proj_gamejam_2024",
-        title: "Game Jam 2024",
+        id: "proj_gamejam_2025",
+        title: "Global Game Jam 2025",
         extension: "sysX",
-        date: "Jul 08 2024",
+        date: "Jul 08 2025",
         description:
-            'Led a team of four to create a game in 48 hours for the Global Game Jam, focusing on the theme of "Repetition". The result was a critically acclaimed puzzle-platformer that won the local "Best Design" award.',
+            'Led a team of six to create a game in 72 hours for the Global Game Jam, focusing on the theme of "Bubbles". The result was a small minigame collection called Pazpaz!',
         visual: {
-            type: "video",
-            src: "/videos/sample-video.mp4", // Replace with your video in /static/videos
+            type: "image",
+            src: "/pazpaz.gif",
         },
-        tech: ["Unity", "C#", "Leadership", "Aseprite"],
+        tech: ["Unity", "C#", "Mobile", "Leadership"],
         links: {
-            github: "#", // Replace with your link
-            live: "#",
+            live: "https://rekyconan.itch.io/pazpaz",
         },
     },
     {
-        id: "proj_academic_datastruct",
-        title: "Data Structures Visualizer",
-        extension: "dbin",
-        date: "Mar 15 2024",
+        id: "proj_kirby_charactercontroller",
+        title: "Modular Character Controller",
+        extension: "sysX",
+        date: "Aug 04 2025",
         description:
-            "An academic project to visualize common data structures like linked lists and binary trees using interactive animations, built as a final for my CS201 course. Features a clean UI and step-by-step execution.",
+            "My Year 2 Finals project in Game Development. An advanced, modular Character Controller made in Unity, with a Kirby theme. Meant to showcase the various SOLID principles.",
         visual: {
-            type: "image",
-            src: "/images/sample-image.png", // Replace with your image in /static/images
+            type: "embed",
+            src: "https://youtu.be/MLwYUZQl6t0",
         },
-        tech: ["Svelte", "TypeScript", "D3.js", "Vite"],
+        tech: ["Unity", "C#", "SOLID", "Polished", "Game Logic"],
         links: {
-            github: "#",
+            github: "https://github.com/ReKylee/KirbyCharacterController",
         },
     },
+
     {
         id: "proj_freelance_backend",
         title: "Freelance Backend System",
@@ -59,11 +58,60 @@ export const projects: Project[] = [
             "Designed and built a robust server-side system for a client using TypeScript and Domain-Driven Design. Managed full-stack components, from databases to complex business logic and admin endpoints.",
         visual: {
             type: "image",
-            src: "/images/sample-image.png", // Replace with your image
+            src: "/images/sample-image.png",
         },
         tech: ["Node.js", "TypeScript", "MongoDB", "Zod", "Neverthrow"],
         links: {
             github: "#",
+        },
+    },
+    {
+        id: "proj_inscryption_mp",
+        title: "Multiplayer Inscryption",
+        extension: "sysX",
+        date: "Oct 05 2024",
+        description:
+            "My Year 1 Finals project in Game Development. Unity clone of Inscryption for an online two-player game mode!",
+        visual: {
+            type: "embed",
+            src: "https://youtu.be/qL7ZnCpGWyk",
+        },
+        tech: ["Unity", "C#", "Client-Server", "Polished", "Game Logic"],
+        links: {
+            github: "https://github.com/ReKylee/InscryptionMultiplayerCollege",
+        },
+    },
+    {
+        id: "proj_battleships",
+        title: "Battleships In The Terminal",
+        extension: "dbin",
+        date: "Nov 26 2024",
+        description:
+            "The classic game of Battleships in your Terminal! Built with the FXUI library, this little project allows you to play against a novice AI!",
+        visual: {
+            type: "image",
+            src: "/BattleshipsInTerminal.gif",
+        },
+        tech: ["C", "C++", "Libraries", "UI", "Game Logic"],
+        links: {
+            github: "https://github.com/ReKylee/BattleshipsHW",
+        },
+    },
+
+    {
+        id: "proj_ultimate_charactercatalog",
+        title: "Ultimate Character Catalog",
+        extension: "dbin",
+        date: "Nov 26 2024",
+        description:
+            "Terminal UI built with the FXUI library to display a catalog of characters loaded from a file. Lets you add, remove, sort, search and update the catalog!",
+        visual: {
+            type: "image",
+            src: "/CatalogApp.gif",
+        },
+        tech: ["C", "C++", "Libraries", "UI"],
+        links: {
+            github: "https://github.com/ReKylee/CatalogApp",
         },
     },
 ];

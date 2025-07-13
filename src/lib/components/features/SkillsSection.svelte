@@ -13,6 +13,7 @@
     import PSVita from "$lib/icons/ryan-beck-psvita-controller.svg?component";
     import GBSP from "$lib/icons/ryan-beck-sp-controller.svg?component";
     // Logos
+    // FIX: REPLACE THE UNITY LOGO LIGHT WITH THE MODERN WHITE ONE
     import GodotLogoLight from "$lib/assets/godot_logo_vertical_color_light.svg?component";
     import GodotLogoDark from "$lib/assets/godot_logo_vertical_color_dark.svg?component";
     import UnityLogoLight from "$lib/assets/unity-original-wordmark-logo_light.svg?component";
