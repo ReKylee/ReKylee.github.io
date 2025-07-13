@@ -33,7 +33,7 @@
         sky: "text-ctp-sky",
         red: "text-ctp-red",
     };
-
+    // TODO: LANGUAGE DOESNT CHANGE UNLESS YOU RE-HOVER IT
     $: finalClasses = `font-mono font-bold ${sizeClasses[size] || sizeClasses["3xl"]} ${colorClasses[color] || colorClasses["mauve"]} cursor-pointer focus:outline-none`;
 
     // --- Scramble Animation Logic ---

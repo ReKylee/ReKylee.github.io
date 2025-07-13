@@ -3,10 +3,11 @@
     import ProjectFile from "./ProjectFile.svelte";
     import { viewProject } from "$lib/stores/terminalStore";
     import BlinkingCursor from "../../ui/BlinkingCursor.svelte";
+    import { fade } from "svelte/transition";
     export let projects: Project[];
 </script>
 
-<div>
+<div in:fade>
     <p>> ls -l</p>
     <div class="my-4 flex flex-col gap-1">
         {#each projects as project, index ((project.id, index))}

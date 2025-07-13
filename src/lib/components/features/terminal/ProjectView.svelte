@@ -1,11 +1,16 @@
 <script lang="ts">
     import type { Project } from "$lib/data/projects";
     import { closeProject } from "$lib/stores/terminalStore";
+    import { crtShutdown } from "$lib/transitions/crtShutdown";
+    import { fade } from "svelte/transition";
     import GlitchText from "../../ui/GlitchText.svelte";
     export let project: Project;
 </script>
 
-<div class="project-view flex flex-col h-full max-h-full min-h-0">
+<div
+    in:fade
+    out:crtShutdown
+    class="project-view flex flex-col h-full max-h-full min-h-0">
     <header class="mb-4 pb-2 flex-shrink-0">
         <p>> cat {project.title}.{project.extension}</p>
         <div class="ascii-hr mt-2"></div>

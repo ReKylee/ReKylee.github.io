@@ -3,9 +3,14 @@
     export let project: Project;
 </script>
 
-<div class="grid grid-cols-[1fr_max-content] gap-4">
+<div class="flex flex-col sm:grid sm:grid-cols-[1fr_max-content] sm:gap-x-4">
+    <!-- Filename and permissions -->
     <p class="text-ctp-blue whitespace-nowrap overflow-hidden text-ellipsis">
-        -rwx--r--r-- {project.title}.{project.extension}
+        <span class="hidden sm:inline">-rwx--r--r-- </span>
+        {project.title}.{project.extension}
     </p>
-    <p class="text-ctp-subtext1">{project.date}</p>
+
+    <p class="text-ctp-subtext1 text-right sm:text-left">
+        {project.date}
+    </p>
 </div>

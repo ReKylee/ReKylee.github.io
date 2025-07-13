@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+    import BlinkingCursor from "$lib/components/ui/BlinkingCursor.svelte";
     import { finishBooting } from "$lib/stores/terminalStore";
 
     const lines = [
@@ -11,26 +11,25 @@
         "ACCESS GRANTED.",
         "Welcome, Guest.",
     ];
-
-    let displayedLines: string[] = [];
-
-    onMount(() => {
-        let i = 0;
-        const interval = setInterval(() => {
-            if (i < lines.length) {
-                displayedLines = [...displayedLines, lines[i]];
-                i++;
-            } else {
-                clearInterval(interval);
-                setTimeout(finishBooting, 500); // Wait a moment before switching view
-            }
-        }, 300); // Speed of the boot sequence
-    });
 </script>
 
 <div>
-    {#each displayedLines as line}
-        <p>> {line}</p>
+    {#each lines as line, i}
+        {#if i === lines.length - 1}
+            <p
+                on:animationend={finishBooting}
+                class="opacity-0 animate-fade animate-duration-[1]"
+                style="animation-delay: {i * 0.3}s">
+                &gt; {line}
+            </p>
+        {:else}
+            <p
+                class="opacity-0 animate-fade animate-duration-[0.1]"
+                style="animation-delay: {i * 0.3}s">
+                &gt; {line}
+            </p>
+        {/if}
     {/each}
-    <span class="blinking-cursor h-5 w-2 bg-ctp-green inline-block"></span>
+
+    <BlinkingCursor />
 </div>

@@ -28,14 +28,37 @@
 
 <div
     bind:this={terminalElement}
-    class="font-mono bg-ctp-crust text-ctp-green h-[60vh] ascii-border">
+    class="
+    relative
+    w-full
+    h-[60vh]
+    overflow-y-auto
+    overflow-x-hidden
+    font-mono
+    text-sm
+    sm:text-base
+    leading-relaxed
+    bg-ctp-crust
+    text-ctp-green
+    p-4
+    rounded
+    ascii-border
+  ">
     {#if $terminalStore.state === "waiting"}
-        <p>> STANDBY_</p>
+        <div class="absolute inset-0 p-4">
+            <p>> STANDBY_</p>
+        </div>
     {:else if $terminalStore.state === "booting"}
-        <BootSequence />
+        <div class="absolute inset-0 p-4">
+            <BootSequence />
+        </div>
     {:else if $terminalStore.state === "listing_files"}
-        <FileExplorer {projects} />
+        <div class="absolute inset-0 p-4">
+            <FileExplorer {projects} />
+        </div>
     {:else if $terminalStore.state === "viewing_project" && $terminalStore.activeProject}
-        <ProjectView project={$terminalStore.activeProject} />
+        <div class="absolute inset-0 p-4">
+            <ProjectView project={$terminalStore.activeProject} />
+        </div>
     {/if}
 </div>
