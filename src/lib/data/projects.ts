@@ -33,12 +33,28 @@ export const projects: Project[] = [
         },
     },
     {
+        id: "proj_adventure_island",
+        title: "Adventure Island III Unity",
+        extension: "sysX",
+        date: "Aug 09 2025",
+        description:
+            "My Year 2 Finals project in Game Development, We had to recreate Hudson Soft's 1998 NES Game Adventure Island III in unity using SOLID principles and Game Design patterns!",
+        visual: {
+            type: "embed",
+            src: "https://youtu.be/J64MaViJna0",
+        },
+        tech: ["Unity", "C#", "SOLID", "Polished", "Game Logic"],
+        links: {
+            github: "https://github.com/ReKylee/ShenkarUnityFinals2025",
+        },
+    },
+    {
         id: "proj_kirby_charactercontroller",
         title: "Modular Character Controller",
         extension: "sysX",
         date: "Aug 04 2025",
         description:
-            "My Year 2 Finals project in Game Development. An advanced, modular Character Controller made in Unity, with a Kirby theme. Meant to showcase the various SOLID principles.",
+            "One part of my Year 2 Finals project in Game Development. An advanced, modular Character Controller made in Unity, with a Kirby theme. Meant to showcase the various SOLID principles.",
         visual: {
             type: "embed",
             src: "https://youtu.be/MLwYUZQl6t0",
@@ -57,7 +73,7 @@ export const projects: Project[] = [
             "Designed and built a robust server-side system for a client using TypeScript and Domain-Driven Design. Managed full-stack components, from databases to complex business logic and admin endpoints.",
         visual: {
             type: "image",
-            src: "/images/sample-image.png",
+            src: "",
         },
         tech: [
             "Node.js",
@@ -73,14 +89,14 @@ export const projects: Project[] = [
     },
     {
         id: "proj_notes_backend",
-        title: "Freelance Backend System",
+        title: "PickMi Web App",
         extension: "sysX",
         date: "Aug 01 2025",
         description:
-            "Developed the backend for our final Web Development project using TypeScript and Domain-Driven Design, handling everything from data modeling to admin-specific API endpoints.",
+            "Developed for our final Web Development project using TypeScript and Domain-Driven Design, I handled everything from data modeling to admin-specific API endpoints.",
         visual: {
             type: "image",
-            src: "/images/sample-image.png",
+            src: "/PickMi.png",
         },
         tech: [
             "Node.js",
