@@ -1,0 +1,116 @@
+---
+import "../app.css";
+import { getDir, type Locale } from "$lib/i18n";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+
+interface Props {
+    locale: Locale;
+    title: string;
+    description: string;
+}
+
+const { locale, title, description } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const enUrl = getAbsoluteLocaleUrl("en");
+const heUrl = getAbsoluteLocaleUrl("he");
+const ogLocale = locale === "he" ? "he_IL" : "en_US";
+---
+
+<!doctype html>
+<html lang={locale} dir={getDir(locale)}>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content={description} />
+        <title>{title}</title>
+
+        <link rel="icon" href="/favicon.svg" />
+        <link rel="canonical" href={canonicalUrl} />
+        <link rel="alternate" hreflang="en" href={enUrl} />
+        <link rel="alternate" hreflang="he" href={heUrl} />
+        <link rel="alternate" hreflang="x-default" href={enUrl} />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:locale" content={ogLocale} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+Hebrew:wght@400;700&display=swap"
+            rel="stylesheet" />
+
+        <script is:inline>
+            (() => {
+                const root = document.documentElement;
+                const pathLocale = location.pathname.split("/").filter(Boolean)[0];
+                const locale = pathLocale === "he" ? "he" : "en";
+                root.lang = locale;
+                root.dir = locale === "he" ? "rtl" : "ltr";
+                localStorage.setItem("language", locale);
+
+                const savedTheme = localStorage.getItem("theme");
+                const dark = matchMedia("(prefers-color-scheme: dark)").matches;
+                const theme =
+                    savedTheme === "dark" || savedTheme === "light"
+                        ? savedTheme
+                        : dark
+                          ? "dark"
+                          : "light";
+                root.classList.remove("latte", "mocha");
+                root.classList.add(theme === "light" ? "latte" : "mocha");
+
+                const reducedMotion = matchMedia(
+                    "(prefers-reduced-motion: reduce)",
+                ).matches;
+                const defaults = {
+                    crtStrength: 0.15,
+                    reducedMotion,
+                    reducedMotionMode: "system",
+                    highContrast: false,
+                    uiScale: "default",
+                };
+
+                let saved = defaults;
+                try {
+                    const raw = localStorage.getItem("accessibility-options");
+                    if (raw) {
+                        const parsed = JSON.parse(raw);
+                        saved = {
+                            ...defaults,
+                            ...parsed,
+                            reducedMotionMode:
+                                parsed?.reducedMotionMode === "manual"
+                                    ? "manual"
+                                    : parsed?.reducedMotion !== undefined
+                                      ? "manual"
+                                      : "system",
+                        };
+                    } else {
+                        saved = defaults;
+                    }
+                } catch {
+                    saved = defaults;
+                }
+
+                root.style.setProperty("--harshness", String(saved.crtStrength));
+                root.setAttribute(
+                    "data-reduced-motion-mode",
+                    saved.reducedMotionMode,
+                );
+                root.classList.toggle("a11y-reduced-motion", !!saved.reducedMotion);
+                root.classList.toggle("a11y-high-contrast", !!saved.highContrast);
+                root.classList.toggle("a11y-scale-large", saved.uiScale === "large");
+            })();
+        </script>
+    </head>
+    <body class="bg-ctp-base text-ctp-text">
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        <slot />
+    </body>
+</html>

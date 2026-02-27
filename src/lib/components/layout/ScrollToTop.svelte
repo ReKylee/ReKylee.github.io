@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { fly } from "svelte/transition";
+    import { accessibility } from "$lib/stores/accessibility";
 
     let y = 0;
     let hasMounted = false; // This is false on the server and for no-JS users
@@ -16,7 +17,10 @@
     // This click handler adds smooth scrolling for JS users
     const smoothScroll = (event: MouseEvent) => {
         event.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({
+            top: 0,
+            behavior: $accessibility.reducedMotion ? "auto" : "smooth",
+        });
     };
 </script>
 
@@ -31,7 +35,9 @@
     <a
         href="#page-top"
         on:click={smoothScroll}
-        transition:fly={{ y: 100, duration: 300 }}
+        transition:fly={$accessibility.reducedMotion
+            ? { y: 0, duration: 0 }
+            : { y: 100, duration: 300 }}
         class="fixed bottom-8 right-8 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-ctp-mauve text-ctp-base shadow-lg transition-all hover:scale-110 hover:bg-ctp-pink focus:outline-none focus:ring-2 focus:ring-ctp-pink focus:ring-offset-2 focus:ring-offset-ctp-base"
         aria-label="Scroll to top">
         <!-- SVG arrow icon -->

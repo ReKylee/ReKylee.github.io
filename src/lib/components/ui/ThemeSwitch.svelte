@@ -1,5 +1,5 @@
 <script>
-    import { theme } from "$lib/stores/theme.js";
+    import { theme } from "$lib/stores/theme";
 
     function toggleTheme() {
         theme.setTheme($theme === "light" ? "dark" : "light");

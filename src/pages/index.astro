@@ -1,0 +1,20 @@
+---
+import { DEFAULT_LOCALE } from "$lib/i18n";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="refresh" content={`0; url=/${DEFAULT_LOCALE}/`} />
+        <script is:inline>
+            (() => {
+                const saved = localStorage.getItem("language");
+                const preferred = saved === "he" ? "he" : "en";
+                location.replace(`/${preferred}/`);
+            })();
+        </script>
+    </head>
+    <body></body>
+</html>

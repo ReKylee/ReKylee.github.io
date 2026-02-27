@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PortfolioApp from "$lib/components/app/PortfolioApp.svelte";
+import { getLocalePageData } from "$lib/content/pageData";
+
+export const prerender = true;
+
+const locale = "en";
+const { siteContent, projects, translationsByLocale, projectsByLocale } =
+    await getLocalePageData(locale);
+---
+
+<BaseLayout
+    locale={locale}
+    title={siteContent.seo.title}
+    description={siteContent.seo.description}>
+    <PortfolioApp
+        client:load
+        locale={locale}
+        translations={siteContent}
+        translationsByLocale={translationsByLocale}
+        projects={projects}
+        projectsByLocale={projectsByLocale}
+    />
+</BaseLayout>

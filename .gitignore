@@ -39,6 +39,8 @@ build
 **/build
 dist
 **/dist
+.astro
+.npm-cache
 .svelte
 .svelte-kit
 **/.svelte

@@ -1,5 +1,5 @@
 import { writable } from "svelte/store";
-import type { Project } from "$lib/data/projects";
+import type { Project } from "$lib/types";
 
 type TerminalState =
     | "waiting"
@@ -34,7 +34,7 @@ export const viewProject = (project: Project) => {
 };
 
 export const closeProject = () => {
-    terminalStore.update((store) => ({
+    terminalStore.update(() => ({
         state: "listing_files",
         activeProject: null,
     }));

@@ -58,18 +58,18 @@
         }
         // For 'linear', we just use the default sequential array.
 
-        const revealed = new Set<number>();
+        const revealed = Array.from({ length: text.length }, () => false);
         let step = 0;
         scrambleIntervalId = setInterval(() => {
             const indexToReveal = indices[step];
             if (indexToReveal !== undefined) {
-                revealed.add(indexToReveal);
+                revealed[indexToReveal] = true;
             }
 
             displayedText = text
                 .split("")
                 .map((_letter, index) => {
-                    if (revealed.has(index)) return text[index];
+                    if (revealed[index]) return text[index];
                     return chars[Math.floor(Math.random() * chars.length)];
                 })
                 .join("");

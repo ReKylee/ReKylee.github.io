@@ -17,6 +17,36 @@
 * {
     box-sizing: border-box;
 }
+
+.skip-link {
+    position: fixed;
+    left: 1rem;
+    top: -3rem;
+    z-index: 200;
+    border: 2px solid var(--color-ctp-sky-300);
+    background: var(--color-ctp-base-700);
+    color: var(--color-ctp-text-50);
+    padding: 0.45rem 0.7rem;
+    transition: top 0.15s ease-out;
+}
+
+.skip-link:focus-visible {
+    top: 1rem;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible,
+[role="option"]:focus-visible,
+[role="listbox"]:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--color-ctp-sky-300);
+    outline-offset: 2px;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -84,18 +114,86 @@ main {
     opacity: 1;
 }
 
-/* An ASCII-style horizontal rule made of characters */
-.ascii-hr {
-    @apply w-full text-left text-ctp-surface1 overflow-hidden whitespace-nowrap;
-}
-.ascii-hr::after {
-    content: "---------------------------------------------------------------------------------------------------------";
-}
-
 /* --- High-Fidelity CRT Filter --- */
 /* Define the --harshness variable on the root for global access */
 :root {
     --harshness: 0.15; /* Default value */
+    --ui-scale: 1;
+}
+
+html {
+    font-size: calc(16px * var(--ui-scale));
+}
+
+html.a11y-scale-large {
+    --ui-scale: 1.06;
+}
+
+html.a11y-high-contrast {
+    filter: contrast(1.08);
+}
+
+html.a11y-reduced-motion {
+    scroll-behavior: auto;
+}
+
+html.a11y-reduced-motion *,
+html.a11y-reduced-motion *::before,
+html.a11y-reduced-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+}
+
+html.a11y-reduced-motion .section-animate,
+html.a11y-reduced-motion .section-animate.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+}
+
+html.a11y-reduced-motion [class*="animate-"] {
+    animation: none !important;
+}
+
+html.a11y-reduced-motion .crt-wrapper {
+    animation: none;
+    filter: none;
+    text-shadow: none;
+}
+
+html.a11y-reduced-motion body::before,
+html.a11y-reduced-motion body::after {
+    opacity: 0;
+    animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html:not([data-reduced-motion-mode="manual"]) {
+        scroll-behavior: auto;
+    }
+
+    html:not([data-reduced-motion-mode="manual"]) *,
+    html:not([data-reduced-motion-mode="manual"]) *::before,
+    html:not([data-reduced-motion-mode="manual"]) *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+    }
+
+    html:not([data-reduced-motion-mode="manual"]) .crt-wrapper {
+        animation: none;
+        filter: none;
+        text-shadow: none;
+    }
+
+    html:not([data-reduced-motion-mode="manual"]) body::before,
+    html:not([data-reduced-motion-mode="manual"]) body::after {
+        opacity: 0;
+        animation: none;
+    }
 }
 
 /* This pseudo-element creates the phosphor glow and screen curvature */

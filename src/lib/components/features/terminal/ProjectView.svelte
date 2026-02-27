@@ -1,19 +1,76 @@
 <script lang="ts">
-    import type { Project } from "$lib/data/projects";
+    import { onMount } from "svelte";
+    import type { Project } from "$lib/types";
+    import { accessibility } from "$lib/stores/accessibility";
     import { closeProject } from "$lib/stores/terminalStore";
     import { crtShutdown } from "$lib/transitions/crtShutdown";
     import { fade } from "svelte/transition";
-    import GlitchText from "../../ui/GlitchText.svelte";
     export let project: Project;
+
+    const wrap = (text: string, width: number) => {
+        const words = text.split(/\s+/);
+        const lines: string[] = [];
+        let current = "";
+        for (const word of words) {
+            const candidate = current ? `${current} ${word}` : word;
+            if (candidate.length > width) {
+                if (current) lines.push(current);
+                current = word;
+            } else {
+                current = candidate;
+            }
+        }
+        if (current) lines.push(current);
+        return lines;
+    };
+
+    const BOX_WIDTH = 60;
+    const CONTENT_WIDTH = BOX_WIDTH - 2;
+    const BORDER = `+${"-".repeat(CONTENT_WIDTH)}+`;
+    const line = (label: string, value = "") =>
+        `|${(` ${label}${value}`).slice(0, CONTENT_WIDTH).padEnd(CONTENT_WIDTH, " ")}|`;
+    $: descLines = wrap(project.description, CONTENT_WIDTH - 2);
+    $: printout = [
+        BORDER,
+        line("RECORD :: ", project.title),
+        line("ID     :: ", project.id.toUpperCase()),
+        line("STAMP  :: ", project.date),
+        line("CLASS  :: ", project.extension.toUpperCase()),
+        line("TECH   :: ", project.tech.join(" | ")),
+        BORDER,
+        line("BRIEFING"),
+        ...descLines.map((entry) => line("", entry)),
+        BORDER,
+        line("CODE UPLINK :: ", project.links?.github ? "ONLINE" : "OFFLINE"),
+        line("LIVE UPLINK :: ", project.links?.live ? "ONLINE" : "OFFLINE"),
+        BORDER,
+    ].join("\n");
+
+    let viewEl: HTMLDivElement;
+    const onKeydown = (event: KeyboardEvent) => {
+        if (event.key === "Escape") {
+            event.preventDefault();
+            closeProject();
+        }
+    };
+
+    onMount(() => {
+        requestAnimationFrame(() => viewEl?.focus());
+    });
 </script>
 
 <div
-    in:fade
-    out:crtShutdown
-    class="project-view flex flex-col h-full max-h-full min-h-0">
-    <header class="mb-4 pb-2 flex-shrink-0">
-        <p>> cat {project.title}.{project.extension}</p>
-        <div class="ascii-hr mt-2"></div>
+    bind:this={viewEl}
+    role="dialog"
+    aria-modal="true"
+    aria-label={`Project view: ${project.title}`}
+    tabindex="0"
+    on:keydown={onKeydown}
+    in:fade={{ duration: $accessibility.reducedMotion ? 0 : 150 }}
+    out:crtShutdown={{ duration: $accessibility.reducedMotion ? 0 : 550 }}
+    class="project-view absolute inset-0 flex h-full max-h-full min-h-0 flex-col">
+    <header class="mb-4 flex-shrink-0">
+        <p>RX: OPEN_RECORD {project.id.toUpperCase()}</p>
     </header>
 
     <main class="flex-grow overflow-auto min-h-0">
@@ -29,47 +86,22 @@
                                 (
                                     e.currentTarget as HTMLImageElement
                                 ).style.display = "none";
-                                console.warn(
-                                    `Image failed to load: ${project.visual.src}`,
-                                );
                             }} />
                     {:else if project.visual.type === "video"}
-                        <video
-                            controls
-                            class="w-full h-auto border-2 border-ctp-surface1 p-1"
-                            on:error={() =>
-                                console.warn(
-                                    `Video failed to load: ${project.visual.src}`,
-                                )}>
+                        <video controls class="w-full h-auto border-2 border-ctp-surface1 p-1">
                             <source src={project.visual.src} type="video/mp4" />
-                            <track
-                                kind="captions"
-                                src={project.visual.src.replace(".mp4", ".vtt")}
-                                srclang="en"
-                                label="English" />
                             Your browser does not support the video tag.
                         </video>
                     {:else if project.visual.type === "embed"}
-                        <div
-                            class="aspect-video w-full border-2 border-ctp-surface1 p-1">
+                        <div class="aspect-video w-full border-2 border-ctp-surface1 p-1">
                             <iframe
                                 src={project.visual.src}
                                 class="w-full h-full"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen
-                                title={project.title}
-                                on:load={() =>
-                                    console.log("Embed iframe loaded")}
-                                on:error={() =>
-                                    console.warn(
-                                        `Embed failed to load: ${project.visual.src}`,
-                                    )}></iframe>
+                                title={project.title}></iframe>
                         </div>
-                    {:else}
-                        <p class="text-sm italic text-ctp-subtext0">
-                            Unknown visual type: {project.visual.type}
-                        </p>
                     {/if}
                 {:else}
                     <p class="text-sm italic text-ctp-subtext0">
@@ -88,45 +120,35 @@
             </div>
 
             <div class="details-container">
-                <h3 class="text-2xl mb-2">
-                    <GlitchText text={project.title} color="sky" size="2xl" />
-                </h3>
-                <p class="text-ctp-text mb-4 whitespace-pre-wrap">
-                    {project.description}
-                </p>
+                <pre class="text-ctp-text text-xs sm:text-sm overflow-x-auto">{printout}</pre>
             </div>
         </div>
     </main>
 
-    <footer class="mt-4 pt-4 flex-shrink-0 border-t border-ctp-surface1">
+    <footer class="mt-4 pt-4 flex-shrink-0">
         <button
             on:click={closeProject}
+            aria-label="Close project window"
             class="text-ctp-red hover:bg-ctp-red hover:text-ctp-base p-1"
-            >[EXIT]</button>
+            >[TERMINATE LINK]</button>
     </footer>
 </div>
 
 <style>
-    /* Ensure the project-view container fills parent and sets up flex layout */
     .project-view {
-        /* height handled by parent container (set h-full on parent) */
         display: flex;
         flex-direction: column;
-        /* min-h-0 required to allow flex children with overflow to shrink */
         min-height: 0;
         max-height: 100%;
     }
 
     main {
-        /* This allows main to grow and scroll inside flex container */
         flex-grow: 1;
         overflow-y: auto;
-        min-height: 0; /* essential for correct overflow inside flex */
+        min-height: 0;
     }
 
     footer {
-        /* fixed height footer, flex-shrink: 0 keeps it visible */
         flex-shrink: 0;
-        border-top: 1px solid var(--ctp-surface1);
     }
 </style>

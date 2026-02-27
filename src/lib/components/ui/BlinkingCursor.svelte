@@ -1,11 +1,15 @@
 <span
-    class="blinking-cursor inline-block align-middle justify-center h-current w-2 bg-ctp-green"
+    class="blinking-cursor"
 ></span>
 
 <style>
     .blinking-cursor {
-        animation: blink 1s step-end infinite;
+        display: inline-block;
+        width: 0.55em;
         height: 1em;
+        vertical-align: -0.2em;
+        animation: blink 1s step-end infinite;
+        background-color: var(--color-ctp-green-300);
     }
 
     @keyframes blink {

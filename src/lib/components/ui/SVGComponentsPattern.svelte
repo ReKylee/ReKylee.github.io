@@ -29,7 +29,7 @@
         aria-hidden="true">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
             <defs>
-                {#each icons as Icon, i}
+                {#each icons as Icon, i (i)}
                     <symbol
                         id="icon-{patternId}-{i}"
                         viewBox="0 0 24 24"
@@ -51,7 +51,7 @@
                         dur="20s"
                         repeatCount="indefinite" />
 
-                    {#each Array(cells) as _, i}
+                    {#each Array(cells) as _, i (i)}
                         <use
                             href="#icon-{patternId}-{i % icons.length}"
                             x={(i % cols) * (scale + spacing)}

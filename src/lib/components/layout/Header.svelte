@@ -10,7 +10,7 @@
     dir="ltr">
     <div class="flex items-center relative mb-4 md:mb-0">
         <img
-            src="./favicon.svg"
+            src="/favicon.svg"
             alt="Kylee's Logo"
             class="h-18 mr-4 inline-block" />
         <GlitchText
@@ -25,6 +25,7 @@
         <ThemeSwitch />
         <button
             on:click={() => language.setLang($language === "en" ? "he" : "en")}
+            aria-label="Switch language"
             class="font-bold text-ctp-sky transition-colors hover:text-ctp-mauve">
             {$language === "en" ? "HE" : "EN"}
         </button>
