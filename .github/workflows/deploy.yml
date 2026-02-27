@@ -28,11 +28,6 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
 
-            - name: Setup Pages
-              uses: actions/configure-pages@v4
-              with:
-                  static_site_generator: astro
-
             - name: Set base path for project pages
               shell: bash
               run: |

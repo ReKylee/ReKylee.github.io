@@ -14,6 +14,19 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const enUrl = getAbsoluteLocaleUrl("en");
 const heUrl = getAbsoluteLocaleUrl("he");
 const ogLocale = locale === "he" ? "he_IL" : "en_US";
+const ogImageUrl = new URL("/PickMi.png", Astro.site);
+const personName = locale === "he" ? "קיילי בניסטי" : "Kylee Benisty";
+const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: personName,
+    url: new URL("/", Astro.site).toString(),
+    image: ogImageUrl.toString(),
+    jobTitle:
+        locale === "he"
+            ? "מפתחת משחקים ומהנדסת תוכנה"
+            : "Game Developer and Software Engineer",
+};
 ---
 
 <!doctype html>
@@ -22,6 +35,7 @@ const ogLocale = locale === "he" ? "he_IL" : "en_US";
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content={description} />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
         <title>{title}</title>
 
         <link rel="icon" href="/favicon.svg" />
@@ -35,9 +49,14 @@ const ogLocale = locale === "he" ? "he_IL" : "en_US";
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:locale" content={ogLocale} />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:alt" content={title} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImageUrl} />
+        <meta name="twitter:image:alt" content={title} />
+        <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
