@@ -31,7 +31,9 @@ jobs:
             - name: Set base path for project pages
               shell: bash
               run: |
-                  if [[ "${{ github.repository }}" == "${{ github.repository_owner }}.github.io" ]]; then
+                  owner_lc="$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')"
+                  repo_lc="$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]')"
+                  if [[ "$repo_lc" == "${owner_lc}.github.io" ]]; then
                     echo "BASE_PATH=/" >> "$GITHUB_ENV"
                   else
                     echo "BASE_PATH=/${{ github.event.repository.name }}" >> "$GITHUB_ENV"
