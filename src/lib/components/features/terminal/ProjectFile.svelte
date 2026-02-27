@@ -5,7 +5,7 @@ export let index: number;
 
     $: seq = String(index + 1).padStart(2, "0");
     $: id = project.id.slice(-6).toUpperCase();
-    $: channel = `CH-${String((index % 9) + 1).padStart(2, "0")}`;
+    $: channel = `AREA-${String((index % 9) + 1).padStart(2, "0")}`;
     $: stamp = project.date.toUpperCase();
 </script>
 

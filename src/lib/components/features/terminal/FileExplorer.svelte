@@ -91,11 +91,11 @@
     in:fade={{ duration: $accessibility.reducedMotion ? 0 : 150 }}
     class="flex h-full min-h-0 flex-col">
     <div class="w-full">
-        <p class="text-ctp-green">RX: ARCHIVE TRAFFIC ONLINE</p>
+        <p class="text-ctp-green">MESSAGE BASE</p>
         <p class="text-xs text-ctp-subtext0">
-            MODE: RADIO LOG | ARROWS: NAV | ENTER: OPEN TRANSMISSION
+            COMMANDS: ARROWS MOVE | ENTER READ | ESC BACK
         </p>
-        <p class="mt-1 text-xs text-ctp-subtext1">CHANNELS: 01-09 | STREAM: STABLE</p>
+        <p class="mt-1 text-xs text-ctp-subtext1">SCAN: NEW MAIL | STATUS: ONLINE</p>
     </div>
     <div
         class="my-4 min-h-0 flex-1 overflow-auto">
@@ -125,7 +125,7 @@
     </div>
     <div class="mt-1 flex w-full flex-shrink-0 items-center">
         <p class="flex items-baseline">
-            <span>RX_READY&gt;&nbsp;</span>
+            <span>BBS&gt;&nbsp;</span>
             <BlinkingCursor />
         </p>
     </div>

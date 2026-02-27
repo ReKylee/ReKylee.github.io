@@ -6,6 +6,7 @@
     import { crtShutdown } from "$lib/transitions/crtShutdown";
     import { fade } from "svelte/transition";
     export let project: Project;
+    // TODO: Redesign project view layout/content hierarchy while preserving terminal aesthetic.
 
     const wrap = (text: string, width: number) => {
         const words = text.split(/\s+/);
@@ -27,22 +28,58 @@
     const BOX_WIDTH = 60;
     const CONTENT_WIDTH = BOX_WIDTH - 2;
     const BORDER = `+${"-".repeat(CONTENT_WIDTH)}+`;
+    const FIELD_LABEL = "SOURCE  :: ";
+    const FIELD_INDENT = " ".repeat(FIELD_LABEL.length);
     const line = (label: string, value = "") =>
         `|${(` ${label}${value}`).slice(0, CONTENT_WIDTH).padEnd(CONTENT_WIDTH, " ")}|`;
+    const splitForField = (label: string, value: string) => {
+        const prefix = ` ${label}`;
+        const width = Math.max(8, CONTENT_WIDTH - prefix.length);
+        const normalized = value.trim();
+        if (!normalized) return [""];
+
+        const breakChars = new Set(["/", "?", "&", "=", "#", "-", "_", "."]);
+        const segments: string[] = [];
+        let remaining = normalized;
+
+        while (remaining.length > width) {
+            let breakAt = -1;
+            for (let i = 0; i < width; i++) {
+                if (breakChars.has(remaining[i])) {
+                    breakAt = i + 1;
+                }
+            }
+
+            if (breakAt <= 0) {
+                breakAt = width;
+            }
+
+            segments.push(remaining.slice(0, breakAt));
+            remaining = remaining.slice(breakAt);
+        }
+
+        segments.push(remaining);
+        return segments.filter((segment) => segment.length > 0);
+    };
     $: descLines = wrap(project.description, CONTENT_WIDTH - 2);
+    $: visualSrc = project.visual?.src ?? "";
+    $: visualSrcLower = visualSrc.toLowerCase();
+    $: isVideoAsset = visualSrcLower.endsWith(".webm") || visualSrcLower.endsWith(".mp4");
+    $: videoMimeType = visualSrcLower.endsWith(".webm") ? "video/webm" : "video/mp4";
+    $: sourceLink = project.links?.github ?? "";
+    $: previewLink = project.links?.live ?? "";
+    $: sourceChunks = splitForField(FIELD_LABEL, sourceLink || "NONE");
+    $: previewChunks = splitForField("PREVIEW :: ", previewLink || "NONE");
     $: printout = [
         BORDER,
-        line("RECORD :: ", project.title),
-        line("ID     :: ", project.id.toUpperCase()),
-        line("STAMP  :: ", project.date),
-        line("CLASS  :: ", project.extension.toUpperCase()),
-        line("TECH   :: ", project.tech.join(" | ")),
+        line("SUBJ    :: ", project.title),
+        line("MSG#    :: ", project.id.toUpperCase()),
+        line("POSTED  :: ", project.date),
+        line("FORMAT  :: ", project.extension.toUpperCase()),
+        line("KEYWORDS:: ", project.tech.join(" | ")),
         BORDER,
-        line("BRIEFING"),
+        line("TEXT"),
         ...descLines.map((entry) => line("", entry)),
-        BORDER,
-        line("CODE UPLINK :: ", project.links?.github ? "ONLINE" : "OFFLINE"),
-        line("LIVE UPLINK :: ", project.links?.live ? "ONLINE" : "OFFLINE"),
         BORDER,
     ].join("\n");
 
@@ -70,14 +107,14 @@
     out:crtShutdown={{ duration: $accessibility.reducedMotion ? 0 : 550 }}
     class="project-view absolute inset-0 flex h-full max-h-full min-h-0 flex-col">
     <header class="mb-4 flex-shrink-0">
-        <p>RX: OPEN_RECORD {project.id.toUpperCase()}</p>
+        <p>READ MAIL {project.id.toUpperCase()}</p>
     </header>
 
     <main class="flex-grow overflow-auto min-h-0">
         <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] md:gap-x-4">
             <div class="visual-container mb-8 md:mb-0">
                 {#if project.visual && project.visual.src}
-                    {#if project.visual.type === "image"}
+                    {#if project.visual.type === "image" && !isVideoAsset}
                         <img
                             src={project.visual.src}
                             alt={project.title}
@@ -87,9 +124,14 @@
                                     e.currentTarget as HTMLImageElement
                                 ).style.display = "none";
                             }} />
-                    {:else if project.visual.type === "video"}
-                        <video controls class="w-full h-auto border-2 border-ctp-surface1 p-1">
-                            <source src={project.visual.src} type="video/mp4" />
+                    {:else if project.visual.type === "video" || isVideoAsset}
+                        <video
+                            autoplay
+                            loop
+                            muted
+                            playsinline
+                            class="w-full h-auto border-2 border-ctp-surface1 p-1">
+                            <source src={project.visual.src} type={videoMimeType} />
                             Your browser does not support the video tag.
                         </video>
                     {:else if project.visual.type === "embed"}
@@ -121,6 +163,59 @@
 
             <div class="details-container">
                 <pre class="text-ctp-text text-xs sm:text-sm overflow-x-auto">{printout}</pre>
+                <div class="ascii-link-block mt-0 text-xs sm:text-sm">
+                    {#if sourceLink}
+                        <a
+                            href={sourceLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="ascii-link-group">
+                            {#each sourceChunks as chunk, index (`source-${index}`)}
+                                <span class="ascii-link-line">
+                                    <span class="ascii-side">|</span>
+                                    <span class="ascii-label">{index === 0 ? ` ${FIELD_LABEL}` : ` ${FIELD_INDENT}`}</span>
+                                    <span class="ascii-link-value">{chunk}</span>
+                                    <span class="ascii-side">|</span>
+                                </span>
+                            {/each}
+                        </a>
+                    {:else}
+                        {#each sourceChunks as chunk, index (`source-${index}`)}
+                            <p class="ascii-link-line">
+                                <span class="ascii-side">|</span>
+                                <span class="ascii-label">{index === 0 ? ` ${FIELD_LABEL}` : ` ${FIELD_INDENT}`}</span>
+                                <span class="ascii-link-value">{chunk}</span>
+                                <span class="ascii-side">|</span>
+                            </p>
+                        {/each}
+                    {/if}
+                    {#if previewLink}
+                        <a
+                            href={previewLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="ascii-link-group">
+                            {#each previewChunks as chunk, index (`preview-${index}`)}
+                                <span class="ascii-link-line">
+                                    <span class="ascii-side">|</span>
+                                    <span class="ascii-label">{index === 0 ? " PREVIEW :: " : ` ${FIELD_INDENT}`}</span>
+                                    <span class="ascii-link-value">{chunk}</span>
+                                    <span class="ascii-side">|</span>
+                                </span>
+                            {/each}
+                        </a>
+                    {:else}
+                        {#each previewChunks as chunk, index (`preview-${index}`)}
+                            <p class="ascii-link-line">
+                                <span class="ascii-side">|</span>
+                                <span class="ascii-label">{index === 0 ? " PREVIEW :: " : ` ${FIELD_INDENT}`}</span>
+                                <span class="ascii-link-value">{chunk}</span>
+                                <span class="ascii-side">|</span>
+                            </p>
+                        {/each}
+                    {/if}
+                    <p class="ascii-border-line">{BORDER}</p>
+                </div>
             </div>
         </div>
     </main>
@@ -130,7 +225,7 @@
             on:click={closeProject}
             aria-label="Close project window"
             class="text-ctp-red hover:bg-ctp-red hover:text-ctp-base p-1"
-            >[TERMINATE LINK]</button>
+            >[RETURN TO MENU]</button>
     </footer>
 </div>
 
@@ -150,5 +245,45 @@
 
     footer {
         flex-shrink: 0;
+    }
+
+    .ascii-link-block {
+        max-width: 100%;
+    }
+
+    .ascii-link-line {
+        display: grid;
+        grid-template-columns: auto auto minmax(0, 1fr) auto;
+        align-items: baseline;
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    .ascii-link-group {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .ascii-side,
+    .ascii-label {
+        color: var(--color-ctp-text);
+    }
+
+    .ascii-link-value {
+        min-width: 0;
+        white-space: nowrap;
+        color: var(--color-ctp-blue);
+        text-decoration: none;
+    }
+
+    .ascii-link-group:hover .ascii-link-value,
+    .ascii-link-group:focus-visible .ascii-link-value {
+        text-decoration: underline;
+    }
+
+    .ascii-border-line {
+        margin: 0;
+        color: var(--color-ctp-text);
     }
 </style>

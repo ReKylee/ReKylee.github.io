@@ -31,19 +31,19 @@
     dir="ltr"
     lang="en"
     role="region"
-    aria-label="Terminal project browser"
+    aria-label="Terminal message browser"
     class="relative flex h-[68dvh] min-h-[22rem] w-full flex-col overflow-hidden rounded border-2 border-ctp-surface0 bg-ctp-crust p-4 font-mono text-sm leading-relaxed text-ctp-green sm:h-[38rem] sm:min-h-[38rem] sm:max-h-[38rem] sm:text-base">
     <div
         class="mb-3 flex flex-shrink-0 gap-3 overflow-x-auto text-xs whitespace-nowrap sm:text-sm">
-        <p>[COMMS_NODE] KYLEE-LINK</p>
-        <p>[CHANNEL] PORTFOLIO_FEED</p>
+        <p>[SYSTEM] KYLEE BBS</p>
+        <p>[NODE] 1</p>
         <p>[STATE] {$terminalStore.state.toUpperCase()}</p>
     </div>
 
     <div class="relative min-h-0 flex-1 overflow-hidden">
         {#if $terminalStore.state === "waiting"}
             <div class="absolute inset-0 overflow-auto p-2">
-                <p>LINK STATUS: STANDBY_</p>
+                <p>WAITING FOR CONNECT_</p>
             </div>
         {:else if $terminalStore.state === "booting"}
             <div class="absolute inset-0 overflow-auto p-2">

@@ -4,13 +4,13 @@ import { accessibility } from "$lib/stores/accessibility";
 import { finishBooting } from "$lib/stores/terminalStore";
 
     const lines = [
-        "HANDSHAKE: KYLEE-LINK v2.4",
-        "AUTH: VERIFYING TRANSMISSION KEYS",
+        "ATZ",
+        "ATDT KYLEE-BBS",
         "",
-        "ROUTING: SYNCHRONIZING RELAY NODES",
-        "PROFILE: LOADING OPERATOR DATA",
-        "ACCESS: CLEARANCE CONFIRMED",
-        "CHANNEL OPEN. WELCOME, GUEST.",
+        "CONNECT 9600",
+        "LOGIN: guest",
+        "MESSAGE BASE: SCANNING NEW",
+        "MAIN MENU READY. TYPE HELP.",
     ];
 
     const progressLineIndex = 2;
