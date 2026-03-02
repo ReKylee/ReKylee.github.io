@@ -8,7 +8,7 @@ date: "Nov 26 2024"
 description: "Terminal UI built with the FXUI library to display a catalog of characters loaded from a file. Lets you add, remove, sort, search and update the catalog!"
 visual:
     type: image
-    src: "/CatalogApp.webm"
+    src: "/CatalogApp.webp"
 tech:
     - C
     - C++
@@ -17,3 +17,5 @@ tech:
 links:
     github: https://github.com/ReKylee/CatalogApp
 ---
+
+

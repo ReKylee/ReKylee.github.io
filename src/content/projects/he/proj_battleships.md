@@ -8,7 +8,7 @@ date: "Nov 26 2024"
 description: "The classic game of Battleships in your Terminal! Built with the FXUI library, this little project allows you to play against a novice AI!"
 visual:
   type: image
-  src: "/BattleshipsInTerminal.webm"
+  src: "/BattleshipsInTerminal.webp"
 tech:
   - C
   - C++
@@ -18,3 +18,5 @@ tech:
 links:
   github: https://github.com/ReKylee/BattleshipsHW
 ---
+
+

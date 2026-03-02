@@ -64,8 +64,8 @@
     $: descLines = wrap(project.description, CONTENT_WIDTH - 2);
     $: visualSrc = project.visual?.src ?? "";
     $: visualSrcLower = visualSrc.toLowerCase();
-    $: isVideoAsset = visualSrcLower.endsWith(".webm") || visualSrcLower.endsWith(".mp4");
-    $: videoMimeType = visualSrcLower.endsWith(".webm") ? "video/webm" : "video/mp4";
+    $: isVideoAsset = visualSrcLower.endsWith(".mp4");
+    $: videoMimeType = "video/mp4";
     $: sourceLink = project.links?.github ?? "";
     $: previewLink = project.links?.live ?? "";
     $: sourceChunks = splitForField(FIELD_LABEL, sourceLink || "NONE");

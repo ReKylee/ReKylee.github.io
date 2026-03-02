@@ -8,9 +8,11 @@ date: "Jun 28 2025"
 description: "Jujutsu Version Control Integration for NeoVim"
 visual:
   type: image
-  src: "/jjnvim.webm"
+  src: "/jjnvim.webp"
 tech:
   - Lua
 links:
   github: https://github.com/ReKylee/jjui.nvim
 ---
+
+
